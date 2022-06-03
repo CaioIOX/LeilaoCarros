@@ -1,0 +1,61 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        RepositorioVeiculos teste = new RepositorioVeiculos();
+        Cadastros cadastro = new Cadastros(teste);
+
+        //Menu
+        int resposta;
+        int respostaListaVeiculos;
+        String removerVeiculo;
+        String alterarVeiculo;
+        do {
+            System.out.println("" +
+                "******* Bem vindo ao leilões de automóveis!! *******" +
+                "\nDigite o número da opção que deseja realizar:" +
+                "\n1 - Cadastro de veículo" +
+                "\n2 - Ver lista de veículos" +
+                "\n3 - Sair");
+            resposta = input.nextInt();
+
+            switch (resposta) {
+                case 1 -> {
+                    cadastro.inserirVeiculos();
+                    System.out.println("Veiculo cadastrado com sucesso!\n");
+                }
+                case 2 -> {
+                    teste.imprimirVeiculos();
+                    System.out.println("Você deseja: " +
+                        "\n1 - Alterar as informações de algum veículo" +
+                        "\n2 - Remover veículo da lista" +
+                        "\n3 - Voltar ao menu anterior");
+                    respostaListaVeiculos = input.nextInt();
+                    switch (respostaListaVeiculos) {
+                        case 1:
+                            System.out.println("Digite o ID do veiculo que deseja alterar as informações: ");
+                            alterarVeiculo = input.next();
+                            teste.alterarVeiculo(alterarVeiculo);
+                            cadastro.inserirVeiculos();
+                            System.out.println("Veículo alterado com sucesso!");
+                            break;
+                        case 2:
+                            System.out.println("Qual veículo deseja remover?");
+                            removerVeiculo = input.next();
+                            teste.removerVeiculo(removerVeiculo);
+                            System.out.println("Veículo removido com sucesso!");
+                            break;
+                        case 3:
+                            break;
+                    }
+                }
+            }
+        } while (resposta != 3);
+
+        System.out.println("Leilão encerrado. Volte sempre!");
+    }
+}
