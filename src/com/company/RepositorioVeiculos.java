@@ -1,5 +1,6 @@
 package com.company;
 
+// Repositorio para os veiculos cadastrados
 public class RepositorioVeiculos {
     private final static int MAX = 100;
     private final Veiculos[] veiculos;
@@ -15,6 +16,7 @@ public class RepositorioVeiculos {
         indice++;
     }
 
+    // Metodo para listar todas as informações de um determinado veiculo
     public void procurarVeiculos(String numero) {
         Veiculos temp = null;
         for (int i = 0; i < indice; i++) {
@@ -38,6 +40,7 @@ public class RepositorioVeiculos {
         }
     }
 
+    // metodo para alterar as informações de um veiculos
     public void alterarVeiculo(String numero) {
         for (int i = 0; i < indice; i++) {
             if (veiculos[i].getId().equals(numero)) {
@@ -48,6 +51,7 @@ public class RepositorioVeiculos {
         }
     }
 
+    // metodo para remover algum veiculo já cadastrado
     public void removerVeiculo(String numero) {
         for (int i = 0; i < indice; i++) {
             if (veiculos[i].getId().equals(numero)) {
@@ -58,6 +62,7 @@ public class RepositorioVeiculos {
         }
     }
 
+    // metodo para listar todos os veiculos cadastrados
     public void imprimirVeiculos() {
         for (int i = 0; i < indice; i++) {
             System.out.println("##########");
