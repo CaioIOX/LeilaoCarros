@@ -3,7 +3,6 @@ package com.company;
 public class RepositorioVeiculos {
     private final static int MAX = 100;
     private final Veiculos[] veiculos;
-    Marca marca;
     private int indice;
 
     public RepositorioVeiculos() {

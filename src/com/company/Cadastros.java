@@ -10,6 +10,8 @@ public class Cadastros {
         this.teste = teste;
     }
 
+    // Metodo para cadastro de veiculos
+
     void inserirVeiculos() {
         System.out.println("Digite um id para o carro: ");
         String id = input.next();

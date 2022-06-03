@@ -9,12 +9,14 @@ public class Main {
         RepositorioVeiculos teste = new RepositorioVeiculos();
         Cadastros cadastro = new Cadastros(teste);
 
-        //Menu
+        //Variaveis para ler input do usuário
         int resposta;
         int respostaListaVeiculos;
         String removerVeiculo;
         String alterarVeiculo;
         String buscaVeiculo;
+
+        //Menu
         do {
             System.out.println("" +
                 "******* Bem vindo ao leilões de automóveis!! *******" +
