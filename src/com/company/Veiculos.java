@@ -35,7 +35,9 @@ public class Veiculos {
     }
 
     public String getMarca() {
-        return marca.getNome();
+        return marca.getNome()
+            + "\nPais de origem: " + marca.getPaisDeOrigem()
+            + "\nPais de produção: " + marca.getPaisDeProducao();
     }
 
     public void setMarca(Marca marca) {
@@ -43,7 +45,9 @@ public class Veiculos {
     }
 
     public String getModelo() {
-        return modelo.getNome();
+        return modelo.getNome()
+            + "\nMotorização: " + modelo.getMotorizacao()
+            + "\nTipo de combustivel: " + modelo.getTipoDeCombustivel();
     }
 
     public void setModelo(Modelo modelo) {

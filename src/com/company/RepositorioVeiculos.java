@@ -3,6 +3,7 @@ package com.company;
 public class RepositorioVeiculos {
     private final static int MAX = 100;
     private final Veiculos[] veiculos;
+    Marca marca;
     private int indice;
 
     public RepositorioVeiculos() {
@@ -15,18 +16,27 @@ public class RepositorioVeiculos {
         indice++;
     }
 
-    private Veiculos procurarVeiculos(String numero) {
+    public void procurarVeiculos(String numero) {
         Veiculos temp = null;
         for (int i = 0; i < indice; i++) {
             if (veiculos[i].getId().equals(numero)) {
                 temp = veiculos[i];
+                System.out.println("Veículo: " + i);
+                System.out.println("Marca: " + veiculos[i].getMarca() + " Modelo: " + veiculos[i].getModelo());
+                System.out.println("ID: " + veiculos[i].getId()
+                    + " Cor: " + veiculos[i].getCor());
+                System.out.println("Ano: " + veiculos[i].getAno()
+                    + " Quilometragem: " + veiculos[i].getQuilometragem() + " Km rodados");
+                System.out.println("Valor da divida: R$ " + veiculos[i].getValorDivida()
+                    + " Lance Mínimo: R$ " + veiculos[i].getLanceMinimo() + "");
+                System.out.println("Estado de conservação: " + veiculos[i].getDescricao());
+                System.out.println();
                 break;
             }
         }
         if (temp == null) {
             System.out.println("Veículo não encontrado!");
         }
-        return temp;
     }
 
     public void alterarVeiculo(String numero) {
@@ -38,6 +48,7 @@ public class RepositorioVeiculos {
             }
         }
     }
+
     public void removerVeiculo(String numero) {
         for (int i = 0; i < indice; i++) {
             if (veiculos[i].getId().equals(numero)) {
@@ -51,15 +62,11 @@ public class RepositorioVeiculos {
     public void imprimirVeiculos() {
         for (int i = 0; i < indice; i++) {
             System.out.println("##########");
-            System.out.println("Veículo: " + i);
+            System.out.println("Veículo: " + (i + 1));
             System.out.println("Marca: " + veiculos[i].getMarca() + " Modelo: " + veiculos[i].getModelo());
-            System.out.println("ID: " + veiculos[i].getId()
-                + " Cor: " + veiculos[i].getCor());
-            System.out.println("Ano: " + veiculos[i].getAno()
-                + " Quilometragem: " + veiculos[i].getQuilometragem());
-            System.out.println("Valor da divida: " + veiculos[i].getValorDivida()
-                + " Lance Mínimo: " + veiculos[i].getLanceMinimo() + "");
-            System.out.println("Estado de conservação: " + veiculos[i].getDescricao());
+            System.out.println("ID: " + veiculos[i].getId());
+            System.out.println("Valor da divida: R$ " + veiculos[i].getValorDivida()
+                + " Lance Mínimo: R$ " + veiculos[i].getLanceMinimo() + "\n");
         }
     }
 

@@ -14,6 +14,7 @@ public class Main {
         int respostaListaVeiculos;
         String removerVeiculo;
         String alterarVeiculo;
+        String buscaVeiculo;
         do {
             System.out.println("" +
                 "******* Bem vindo ao leilões de automóveis!! *******" +
@@ -30,10 +31,11 @@ public class Main {
                 }
                 case 2 -> {
                     teste.imprimirVeiculos();
-                    System.out.println("Você deseja: " +
+                    System.out.println("\nVocê deseja: " +
                         "\n1 - Alterar as informações de algum veículo" +
                         "\n2 - Remover veículo da lista" +
-                        "\n3 - Voltar ao menu anterior");
+                        "\n3 - Ver todas as informações do veiculo" +
+                        "\n4 - Voltar ao menu anterior");
                     respostaListaVeiculos = input.nextInt();
                     switch (respostaListaVeiculos) {
                         case 1:
@@ -50,6 +52,10 @@ public class Main {
                             System.out.println("Veículo removido com sucesso!");
                             break;
                         case 3:
+                            System.out.println("Digite o id do veículo que deseja buscar:");
+                            buscaVeiculo = input.next();
+                            teste.procurarVeiculos(buscaVeiculo);
+                        case 4:
                             break;
                     }
                 }
