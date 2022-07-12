@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        RepositorioVeiculos teste = new RepositorioVeiculos();
-        Cadastros cadastro = new Cadastros(teste);
+        RepositorioVeiculos leilao = new RepositorioVeiculos();
+        Cadastros cadastro = new Cadastros(leilao);
 
         //Variaveis para ler input do usuário
         int resposta;
@@ -32,7 +32,7 @@ public class Main {
                     System.out.println("Veiculo cadastrado com sucesso!\n");
                 }
                 case 2 -> {
-                    teste.imprimirVeiculos();
+                    leilao.imprimirVeiculos();
                     System.out.println("\nVocê deseja: " +
                         "\n1 - Alterar as informações de algum veículo" +
                         "\n2 - Remover veículo da lista" +
@@ -43,20 +43,20 @@ public class Main {
                         case 1:
                             System.out.println("Digite o ID do veiculo que deseja alterar as informações: ");
                             alterarVeiculo = input.next();
-                            teste.alterarVeiculo(alterarVeiculo);
+                            leilao.alterarVeiculo(alterarVeiculo);
                             cadastro.inserirVeiculos();
                             System.out.println("Veículo alterado com sucesso!");
                             break;
                         case 2:
                             System.out.println("Qual veículo deseja remover?");
                             removerVeiculo = input.next();
-                            teste.removerVeiculo(removerVeiculo);
+                            leilao.removerVeiculo(removerVeiculo);
                             System.out.println("Veículo removido com sucesso!");
                             break;
                         case 3:
                             System.out.println("Digite o id do veículo que deseja buscar:");
                             buscaVeiculo = input.next();
-                            teste.procurarVeiculos(buscaVeiculo);
+                            leilao.procurarVeiculos(buscaVeiculo);
                         case 4:
                             break;
                     }
