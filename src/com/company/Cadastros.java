@@ -36,28 +36,28 @@ public class Cadastros {
         String escolhaMarca = input.next();
         Modelo modelo = null;
         Marca marca = null;
-        switch (escolhaMarca) {
-            case "1" -> {
-                marca = new Marca("BMW", "Alemanha", "Brasil");
-                modelo = new Modelo("BMW i4", "2.0", "Elétrico");
-            }
-            case "2" -> {
-                marca = new Marca("Chevrolet", "Estados Unidos", "Brasil");
-                modelo = new Modelo("Camaro", "2.0", "Gasolina");
-            }
-            case "3" -> {
-                marca = new Marca("Fiat", "Itália", "Brasil");
-                modelo = new Modelo("Uno", "1.0", "Flex");
-            }
-            case "4" -> {
-                marca = new Marca("Volkswagen", "Alemanha", "Brasil");
-                modelo = new Modelo("Golf", "1.4", "Gasolina");
-            }
-            case "5" -> {
-                marca = new Marca("Ford", "Estados Unidos", "Brasil");
-                modelo = new Modelo("Focus", "1.6", "Flex");
-            }
-        }
+//        switch (escolhaMarca) {
+//            case "1" -> {
+//                marca = new Marca("BMW", "Alemanha", "Brasil");
+//                modelo = new Modelo("BMW i4", "2.0", "Elétrico");
+//            }
+//            case "2" -> {
+//                marca = new Marca("Chevrolet", "Estados Unidos", "Brasil");
+//                modelo = new Modelo("Camaro", "2.0", "Gasolina");
+//            }
+//            case "3" -> {
+//                marca = new Marca("Fiat", "Itália", "Brasil");
+//                modelo = new Modelo("Uno", "1.0", "Flex");
+//            }
+//            case "4" -> {
+//                marca = new Marca("Volkswagen", "Alemanha", "Brasil");
+//                modelo = new Modelo("Golf", "1.4", "Gasolina");
+//            }
+//            case "5" -> {
+//                marca = new Marca("Ford", "Estados Unidos", "Brasil");
+//                modelo = new Modelo("Focus", "1.6", "Flex");
+//            }
+//        }
 
         teste.adicionar(new Veiculos(cor, id, ano, quilometragem, valorDivida, lanceMinimo, descricao, marca, modelo));
 

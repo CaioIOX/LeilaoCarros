@@ -52,41 +52,52 @@ public class RepositorioVeiculos {
         while (indice < veiculos.size()) {
             if (veiculos.get(indice).getId().equals(numero)) {
                 System.out.println("O que deseja alterar?" +
-                    "\n1 - Marca" +
-                    "\n2 - Modelo" +
-                    "\n3 - Cor" +
-                    "\n4 - Ano" +
-                    "\n5 - Quilometragem" +
-                    "\n6 - Km rodados" +
-                    "\n7 - Valor da divida" +
-                    "\n8 - Lance mínimo" +
-                    "\n9 - Estado de econservação");
+                    "\n1 - Cor" +
+                    "\n2 - Ano" +
+                    "\n3 - Quilometragem" +
+                    "\n4 - Valor da divida" +
+                    "\n5 - Lance mínimo" +
+                    "\n6 - Estado de econservação" +
+                    "\n7 - " +
+                    "\n8 - " +
+                    "\n9 - ");
                 int resposta = input.nextInt();
                 switch (resposta) {
                     case 1 -> {
-                        System.out.println("Digite uma nova entrada para a Marca:");
-
-                     //   veiculos.get(indice);
+                        System.out.println("Escolha uma nova cor:");
+                        String novaCor = input.next();
+                        veiculos.get(indice).setCor(novaCor);
+                        System.out.println("Cor alterada para " + novaCor + " com sucesso!");
                     }
                     case 2 -> {
-                        System.out.println();
-
+                        System.out.println("Escolha um novo ano:");
+                        int novoAno = input.nextInt();
+                        veiculos.get(indice).setAno(novoAno);
+                        System.out.println("Ano alterado para " + novoAno + " com sucesso!");
                     }
                     case 3 -> {
-                        System.out.println();
-
+                        System.out.println("Escolha uma nova quilometragem:");
+                        int novaKm = input.nextInt();
+                        veiculos.get(indice).setQuilometragem(novaKm);
+                        System.out.println("Quilometragem alterada para " + novaKm + "kms rodados com sucesso!");
                     }
                     case 4 -> {
-                        System.out.println();
-
+                        System.out.println("Digite um nvoo valor da dívida: ");
+                        double novaDivida = input.nextDouble();
+                        veiculos.get(indice).setValorDivida(novaDivida);
+                        System.out.println("Valor da dívida alterada para R$ " + novaDivida + " com sucesso!");
                     }
                     case 5 -> {
-                        System.out.println();
-
+                        System.out.println("Digite um novo lance mínimo:");
+                        double novoLance = input.nextDouble();
+                        veiculos.get(indice).setLanceMinimo(novoLance);
+                        System.out.println("Lance mínimo alterado para R$ "+ novoLance + " com sucesso!");
                     }
                     case 6 -> {
-                        System.out.println();
-
+                        System.out.println("Digite um novo estado de conseervação:");
+                        String novaConservacao = input.next();
+                        veiculos.get(indice).setDescricao(novaConservacao);
+                        System.out.println("Descrição alterada com sucesso!");
                     }
                     case 7 -> {
                         System.out.println();
@@ -100,6 +111,7 @@ public class RepositorioVeiculos {
                         System.out.println();
 
                     }
+                    default -> {System.out.println("Opção não disponivel!");}
 
                 }
               //  veiculos.get(indice)
