@@ -48,7 +48,7 @@ public class RepositorioVeiculos {
     }
 
     // metodo para alterar as informações de um veiculos
-    public void alterarVeiculo(String numero) {
+    public void editarVeiculo(String numero) {
         while (indice < veiculos.size()) {
             if (veiculos.get(indice).getId().equals(numero)) {
                 System.out.println("O que deseja alterar?" +

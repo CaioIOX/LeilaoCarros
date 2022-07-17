@@ -13,7 +13,7 @@ public class Main {
         int resposta;
         int respostaListaVeiculos;
         String removerVeiculo;
-        String alterarVeiculo;
+        String editarVeiculo;
         String buscaVeiculo;
 
         //Menu
@@ -42,8 +42,8 @@ public class Main {
                     switch (respostaListaVeiculos) {
                         case 1:
                             System.out.println("Digite o ID do veiculo que deseja alterar as informações: ");
-                            alterarVeiculo = input.next();
-                            leilao.alterarVeiculo(alterarVeiculo);
+                            editarVeiculo = input.next();
+                            leilao.editarVeiculo(editarVeiculo);
                             cadastro.inserirVeiculos();
                             System.out.println("Veículo alterado com sucesso!");
                             break;
