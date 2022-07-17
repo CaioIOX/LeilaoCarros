@@ -31,7 +31,7 @@ public class RepositorioMarca {
             }
         }
         if (temp == null) {
-            System.out.println("Veiculo não encontrado!");
+            System.out.println("Marca não encontrada!");
         }
     }
     public void editarMarca(String nome) {
