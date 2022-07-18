@@ -1,9 +1,9 @@
 package com.company;
 
-public class Main implements GlobalRepo{
+public class Main implements GlobalRepo {
     static int resposta;
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         //Menu
         do {
@@ -56,10 +56,12 @@ public class Main implements GlobalRepo{
 
                             Você deseja:\s
                             1 - Alterar as informações de algum veículo
-                            2 - Remover veículo da lista
-                            3 - Ver todas as informações do veiculo
-                            4 - Comprar um veículo
-                            5 - Voltar ao menu anterior""");
+                            2 - Alterar as informações de alguma marca
+                            3 - Alterar as informaões de algum modelo
+                            4 - Remover veículo da lista
+                            5 - Ver todas as informações do veiculo
+                            6 - Comprar um veículo
+                            7 - Voltar ao menu anterior""");
                     int respostaListaVeiculos = input.nextInt();
                     switch (respostaListaVeiculos) {
                         case 1:
@@ -68,18 +70,28 @@ public class Main implements GlobalRepo{
                             veiculosMain.editarVeiculo(editarVeiculo);
                             break;
                         case 2:
+                            System.out.println("Digite o nome da marca que deseja alterar as informações");
+                            String editarMarca = input.next();
+                            marcaMain.editarMarca(editarMarca);
+                            break;
+                        case 3:
+                            System.out.println("Digite o nome do modelo que deseja alterar as informações");
+                            String editarModelo = input.next();
+                            modeloMain.editarModelo(editarModelo);
+                        case 4:
                             System.out.println("Qual ID do veículo que deseja remover?");
                             String removerVeiculo = input.next();
                             veiculosMain.removerVeiculo(removerVeiculo);
                             break;
-                        case 3:
+                        case 5:
                             System.out.println("Digite o id do veículo que deseja buscar:");
                             String buscaVeiculo = input.next();
                             veiculosMain.procurarVeiculos(buscaVeiculo);
                             break;
-                        case 4:
+                        case 6:
                             veiculosMain.compraVeiculos();
-                        case 5:
+                            break;
+                        case 7:
                             break;
                     }
                 }

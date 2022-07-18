@@ -22,10 +22,8 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
 
     // Metodo para listar todas as informações de um determinado veiculo
     public void procurarVeiculos(String id) {
-        Veiculos temp = null;
         for (int indice = 0; indice < veiculos.size(); indice++) {
             if (veiculos.get(indice).getId().equals(id.toLowerCase())) {
-                temp = veiculos.get(indice);
                 System.out.println("Veículo: " + indice);
                 System.out.println("ID: " + veiculos.get(indice).getId());
                 System.out.println(marcaMain.getMarca().get(indice).getNome() + " " +
@@ -33,16 +31,19 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                 System.out.println("Ano: " + veiculos.get(indice).getAno()
                         + " Quilometragem: " + veiculos.get(indice).getQuilometragem()
                         + " Km rodados");
+                System.out.println("País de fabricação: " + marcaMain.getMarca().get(indice).getPaisDeOrigem() +
+                        " País de produção: " + marcaMain.getMarca().get(indice).getPaisDeProducao());
+                System.out.println("Motor: " + modeloMain.getModelo().get(indice).getMotorizacao() +
+                        " Tipos de combustivel: " + modeloMain.getModelo().get(indice).getTipoDeCombustivel());
                 System.out.println("Valor da divida: R$ " + veiculos.get(indice).getValorDivida()
                         + " Lance Mínimo: R$ " + veiculos.get(indice).getLanceMinimo() + "");
                 System.out.println("Estado de conservação: " + veiculos.get(indice).getDescricao());
                 System.out.println();
                 break;
-            }
+            } else System.out.println("Veículo não encontrado!");
         }
-        if (temp == null) {
-            System.out.println("Veículo não encontrado!");
-        }
+
+
     }
 
     // metodo para alterar as informações de um veiculos
@@ -144,7 +145,7 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                 System.out.println("Quanto deseja pagar?");
                 double lance = input.nextDouble();
                 if (lance < veiculo.getLanceMinimo()) {
-                    System.out.println("Lance menor que lance minimo! Tente com um lance maior");
+                    System.out.println("Lance insuficiente!");
                 } else {
                     System.out.println("""
                             Qual forma de pagamento deseja utilizar?:
@@ -161,7 +162,7 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                             if (compra == 1) {
                                 System.out.println("Compra realizada com sucesso!");
                                 removerVeiculo(id);
-                            }
+                            } else System.out.println("Compra cancelada!");
 
                         }
                         case 2 -> {
@@ -171,7 +172,7 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                             if (compra == 1) {
                                 System.out.println("Compra realizada com sucesso!");
                                 removerVeiculo(id);
-                            }
+                            } else System.out.println("Compra cancelada!");
                         }
                         case 3 -> {
                             pagamento24x(lance);
@@ -180,7 +181,7 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                             if (compra == 1) {
                                 System.out.println("Compra realizada com sucesso!");
                                 removerVeiculo(id);
-                            }
+                            } else System.out.println("Compra cancelada!");
                         }
                         default -> {
                         }

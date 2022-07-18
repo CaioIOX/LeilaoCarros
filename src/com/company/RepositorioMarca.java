@@ -1,9 +1,8 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class RepositorioMarca implements GlobalRepo{
+public class RepositorioMarca implements GlobalRepo {
 
     private static ArrayList<Marca> marca;
 
@@ -14,10 +13,6 @@ public class RepositorioMarca implements GlobalRepo{
 
     public ArrayList<Marca> getMarca() {
         return marca;
-    }
-
-    public static void setMarca(ArrayList<Marca> marca) {
-        RepositorioMarca.marca = marca;
     }
 
     public void adicionar(Marca m) {
@@ -82,7 +77,7 @@ public class RepositorioMarca implements GlobalRepo{
 
     public void imprimirMarcas() {
         for (int indice = 0; indice < marca.size(); indice++) {
-            System.out.println("#" + (indice+1) + " - " + marca.get(indice).getNome());
+            System.out.println("#" + (indice + 1) + " - " + marca.get(indice).getNome());
         }
     }
 
