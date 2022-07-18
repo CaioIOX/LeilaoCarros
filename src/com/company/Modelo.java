@@ -4,7 +4,7 @@ public class Modelo {
     private String nome;
     private String motorizacao;
     private String tipoDeCombustivel;
-    //private Marca marca;
+    private Marca marca;
 
     public Modelo(String nome, String motorizacao, String tipoDeCombustivel) {
         this.nome = nome;
@@ -13,13 +13,13 @@ public class Modelo {
         //this.marca = marca;
     }
 
-//    public Marca getMarca() {
-//        return marca;
-//    }
-//
-//    public void setMarca(Marca marca) {
-//        this.marca = marca;
-//    }
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
 
     public String getNome() {
         return nome;

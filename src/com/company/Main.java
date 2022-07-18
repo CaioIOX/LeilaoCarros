@@ -2,69 +2,71 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main implements GlobalRepo{
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        RepositorioVeiculos veiculosMain = new RepositorioVeiculos();
-        RepositorioMarca marcaMain = new RepositorioMarca();
-        RepositorioModelo modeloMain = new RepositorioModelo();
-        Cadastros cadastro = new Cadastros(veiculosMain, marcaMain, modeloMain);
+    public static void main (String[] args) {
+
         int resposta;
 
         //Menu
         do {
-            System.out.println("" +
-                "******* Bem vindo ao leilões de automóveis!! *******" +
-                "\nDigite o número da opção que deseja realizar:" +
-                "\n1 - Cadastro de veículo" +
-                "\n2 - Ver lista de veículos" +
-                "\n3 - Sair");
+            System.out.println("""
+                    ******* Bem vindo ao leilões de automóveis!! *******
+                    Digite o número da opção que deseja realizar:
+                    1 - Cadastro de veículo
+                    2 - Ver lista de veículos
+                    3 - Sair""");
             resposta = input.nextInt();
 
             switch (resposta) {
                 case 1 -> {
-                    System.out.println("Você deseja cadastrar: " +
-                        "\n1 - Marca" +
-                        "\n2 - Modelo" +
-                        "\n3 - Veiculo");
+                    System.out.println("""
+                            Você deseja cadastrar:\s
+                            1 - Marca
+                            2 - Modelo
+                            3 - Veiculo""");
                     resposta = input.nextInt();
                     switch (resposta) {
-                        case 1 -> {
-                            cadastro.inserirMarca();
+                        case 1 -> cadastro.inserirMarca();
+                        case 2 -> cadastro.inserirModelo();
+                        default -> {
+                            if (marcaMain.isEmpty()) {
+                                System.out.println("Primeiro cadastre uma marca!");
+                                cadastro.inserirMarca();
+                            } else if (modeloMain.isEmpty()) {
+                                System.out.println("Primeiro cadaste um modelo!");
+                                cadastro.inserirModelo();
+                            } else cadastro.inserirVeiculos();
+                            resposta = 0;
                         }
-                        case 2 -> {
-                            cadastro.inserirModelo();
-                        }
-                        default -> cadastro.inserirVeiculos();
                     }
                 }
                 case 2 -> {
                     veiculosMain.imprimirVeiculos();
-                    System.out.println("\nVocê deseja: " +
-                        "\n1 - Alterar as informações de algum veículo" +
-                        "\n2 - Remover veículo da lista" +
-                        "\n3 - Ver todas as informações do veiculo" +
-                        "\n4 - Voltar ao menu anterior");
+                    System.out.println("""
+
+                            Você deseja:\s
+                            1 - Alterar as informações de algum veículo
+                            2 - Remover veículo da lista
+                            3 - Ver todas as informações do veiculo
+                            4 - Voltar ao menu anterior""");
                     int respostaListaVeiculos = input.nextInt();
                     switch (respostaListaVeiculos) {
                         case 1:
                             System.out.println("Digite o ID do veiculo que deseja alterar as informações: ");
                             String editarVeiculo = input.next();
                             veiculosMain.editarVeiculo(editarVeiculo);
-                            cadastro.inserirVeiculos();
-                            System.out.println("Veículo alterado com sucesso!");
                             break;
                         case 2:
                             System.out.println("Qual veículo deseja remover?");
                             String removerVeiculo = input.next();
                             veiculosMain.removerVeiculo(removerVeiculo);
-                            System.out.println("Veículo removido com sucesso!");
                             break;
                         case 3:
                             System.out.println("Digite o id do veículo que deseja buscar:");
                             String buscaVeiculo = input.next();
                             veiculosMain.procurarVeiculos(buscaVeiculo);
+                            break;
                         case 4:
                             break;
                     }

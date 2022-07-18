@@ -5,11 +5,9 @@ import java.util.Scanner;
 
 public class RepositorioModelo {
     private final ArrayList<Modelo> modelo;
-    private int indice;
     private final Scanner input;
 
     public RepositorioModelo() {
-        indice = 0;
         modelo = new ArrayList<>();
         input = new Scanner(System.in);
     }
@@ -20,7 +18,7 @@ public class RepositorioModelo {
 
     public void procurarModelo(String nome) {
         Modelo temp = null;
-        while (indice < modelo.size()) {
+        for (int indice = 0; indice < modelo.size(); indice++) {
             if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
                 temp = modelo.get(indice);
                 System.out.println("Modelo: " + modelo.get(indice).getNome());
@@ -29,7 +27,6 @@ public class RepositorioModelo {
                 System.out.println();
                 break;
             }
-            indice++;
         }
         if (temp == null) {
             System.out.println("Modelo não encontrado!");
@@ -37,12 +34,13 @@ public class RepositorioModelo {
     }
 
     public void editarModelo(String nome) {
-        while (indice < modelo.size()) {
+        for (int indice = 0; indice < modelo.size(); indice++) {
             if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
-                System.out.println("O que deseja alterar?" +
-                    "\n1 - Nome do modelo" +
-                    "\n2 - Motorização" +
-                    "\n3 - Tipo de gasolina");
+                System.out.println("""
+                        O que deseja alterar?
+                        1 - Nome do modelo
+                        2 - Motorização
+                        3 - Tipo de gasolina""");
                 int respostaAlterar = input.nextInt();
                 switch (respostaAlterar) {
                     case 1 -> {
@@ -63,25 +61,23 @@ public class RepositorioModelo {
                     default -> System.out.println("Modelo não encontrado!");
                 }
             }
-            indice++;
         }
     }
 
     public void removerModelo(String nome) {
-        while (indice < modelo.size()) {
+        for (int indice = 0; indice < modelo.size(); indice++) {
             if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
                 modelo.remove(indice);
             }
-            indice++;
         }
     }
 
     public void imprimirModelo() {
-        while (indice < modelo.size()) {
+        for (int indice = 0; indice < modelo.size(); indice++) {
             System.out.println("# - " + modelo.get(indice).getNome());
-            indice++;
         }
     }
+
     public boolean isEmpty() {
 
         return modelo.size() == 0;

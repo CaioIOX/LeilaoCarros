@@ -6,11 +6,9 @@ import java.util.Scanner;
 public class RepositorioMarca {
 
     private static ArrayList<Marca> marca;
-    private int indice;
     private final Scanner input;
 
     public RepositorioMarca() {
-        indice = 0;
         marca = new ArrayList<>();
         input = new Scanner(System.in);
     }
@@ -19,13 +17,17 @@ public class RepositorioMarca {
         return marca;
     }
 
+    public static void setMarca(ArrayList<Marca> marca) {
+        RepositorioMarca.marca = marca;
+    }
+
     public void adicionar(Marca m) {
         marca.add(m);
     }
 
     public void procurarMarcas(String nome) {
         Marca temp = null;
-        while (indice < marca.size()) {
+        for (int indice = 0; indice < marca.size(); indice++) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
                 temp = marca.get(indice);
                 System.out.println("Marca: " + marca.get(indice).getNome());
@@ -34,7 +36,6 @@ public class RepositorioMarca {
                 System.out.println();
                 break;
             }
-            indice++;
         }
         if (temp == null) {
             System.out.println("Marca não encontrada!");
@@ -42,12 +43,13 @@ public class RepositorioMarca {
     }
 
     public void editarMarca(String nome) {
-        while (indice < marca.size()) {
+        for (int indice = 0; indice < marca.size(); indice++) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
-                System.out.println("O que deseja alterar?" +
-                    "\n1 - Nome da Marca" +
-                    "\n2 - País de Origem" +
-                    "\n3 - País de produção");
+                System.out.println("""
+                        O que deseja alterar?
+                        1 - Nome da Marca
+                        2 - País de Origem
+                        3 - País de produção""");
                 int respostaAlterar = input.nextInt();
                 switch (respostaAlterar) {
                     case 1 -> {
@@ -68,27 +70,23 @@ public class RepositorioMarca {
                     default -> System.out.println("Marca não encontrada!");
                 }
             }
-            indice++;
         }
     }
 
     public void removerMarca(String nome) {
-        while (indice < marca.size()) {
+        for (int indice = 0; indice < marca.size(); indice++) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
                 marca.remove(indice);
             }
-            indice++;
         }
     }
 
     public void imprimirMarcas() {
-        int i = 1;
-        while (indice < marca.size()) {
-            System.out.println("# " + i + " - " + marca.get(indice).getNome());
-            i++;
-            indice++;
+        for (int indice = 0; indice < marca.size(); indice++) {
+            System.out.println("# - " + marca.get(indice).getNome());
         }
     }
+
     public boolean isEmpty() {
 
         return marca.size() == 0;
