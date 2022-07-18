@@ -1,6 +1,6 @@
 package com.company;
 
-public class Veiculos {
+public class Veiculos extends AbstractPagamentos {
     private String cor;
     private String id;
     private int ano;
@@ -18,9 +18,7 @@ public class Veiculos {
         int quilometragem,
         double valorDivida,
         double lanceMinimo,
-        String descricao,
-        Marca marca,
-        Modelo modelo) {
+        String descricao) {
 
         this.cor = cor;
         this.id = id;
@@ -29,8 +27,6 @@ public class Veiculos {
         this.valorDivida = valorDivida;
         this.lanceMinimo = lanceMinimo;
         this.descricao = descricao;
-        this.marca = marca;
-        this.modelo = modelo;
 
     }
 

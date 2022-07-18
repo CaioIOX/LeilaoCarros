@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class RepositorioModelo {
     private final ArrayList<Modelo> modelo;
-    private final int indice;
+    private int indice;
     private final Scanner input;
 
     public RepositorioModelo() {
@@ -29,6 +29,7 @@ public class RepositorioModelo {
                 System.out.println();
                 break;
             }
+            indice++;
         }
         if (temp == null) {
             System.out.println("Modelo não encontrado!");
@@ -62,6 +63,7 @@ public class RepositorioModelo {
                     default -> System.out.println("Modelo não encontrado!");
                 }
             }
+            indice++;
         }
     }
 
@@ -70,12 +72,18 @@ public class RepositorioModelo {
             if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
                 modelo.remove(indice);
             }
+            indice++;
         }
     }
 
     public void imprimirModelo() {
         while (indice < modelo.size()) {
             System.out.println("# - " + modelo.get(indice).getNome());
+            indice++;
         }
+    }
+    public boolean isEmpty() {
+
+        return modelo.size() == 0;
     }
 }

@@ -5,22 +5,27 @@ import java.util.Scanner;
 
 public class RepositorioMarca {
 
-    private final ArrayList<Marca> marca;
-    private final int indice;
+    private static ArrayList<Marca> marca;
+    private int indice;
     private final Scanner input;
 
     public RepositorioMarca() {
-        indice =0;
+        indice = 0;
         marca = new ArrayList<>();
         input = new Scanner(System.in);
+    }
+
+    public ArrayList<Marca> getMarca() {
+        return marca;
     }
 
     public void adicionar(Marca m) {
         marca.add(m);
     }
+
     public void procurarMarcas(String nome) {
         Marca temp = null;
-        while (indice<marca.size()) {
+        while (indice < marca.size()) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
                 temp = marca.get(indice);
                 System.out.println("Marca: " + marca.get(indice).getNome());
@@ -29,13 +34,15 @@ public class RepositorioMarca {
                 System.out.println();
                 break;
             }
+            indice++;
         }
         if (temp == null) {
             System.out.println("Marca não encontrada!");
         }
     }
+
     public void editarMarca(String nome) {
-        while (indice<marca.size()) {
+        while (indice < marca.size()) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
                 System.out.println("O que deseja alterar?" +
                     "\n1 - Nome da Marca" +
@@ -61,18 +68,29 @@ public class RepositorioMarca {
                     default -> System.out.println("Marca não encontrada!");
                 }
             }
+            indice++;
         }
     }
+
     public void removerMarca(String nome) {
-        while (indice<marca.size()) {
+        while (indice < marca.size()) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
                 marca.remove(indice);
             }
+            indice++;
         }
     }
+
     public void imprimirMarcas() {
-        while (indice<marca.size()) {
-            System.out.println("# - " + marca.get(indice).getNome());
+        int i = 1;
+        while (indice < marca.size()) {
+            System.out.println("# " + i + " - " + marca.get(indice).getNome());
+            i++;
+            indice++;
         }
+    }
+    public boolean isEmpty() {
+
+        return marca.size() == 0;
     }
 }

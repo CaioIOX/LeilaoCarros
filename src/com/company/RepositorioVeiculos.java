@@ -6,7 +6,7 @@ import java.util.Scanner;
 // Repositorio para os veiculos cadastrados
 public class RepositorioVeiculos {
     private final ArrayList<Veiculos> veiculos;
-    private final int indice;
+    private int indice;
     private final Scanner input;
 
 
@@ -24,7 +24,7 @@ public class RepositorioVeiculos {
     // Metodo para listar todas as informações de um determinado veiculo
     public void procurarVeiculos(String numero) {
         Veiculos temp = null;
-        while (indice<veiculos.size()) {
+        while (indice < veiculos.size()) {
             if (veiculos.get(indice).getId().equals(numero)) {
                 temp = veiculos.get(indice);
                 System.out.println("Veículo: " + indice);
@@ -41,6 +41,7 @@ public class RepositorioVeiculos {
                 System.out.println();
                 break;
             }
+            indice++;
         }
         if (temp == null) {
             System.out.println("Veículo não encontrado!");
@@ -57,10 +58,7 @@ public class RepositorioVeiculos {
                     "\n3 - Quilometragem" +
                     "\n4 - Valor da divida" +
                     "\n5 - Lance mínimo" +
-                    "\n6 - Estado de econservação" +
-                    "\n7 - " +
-                    "\n8 - " +
-                    "\n9 - ");
+                    "\n6 - Estado de econservação");
                 int resposta = input.nextInt();
                 switch (resposta) {
                     case 1 -> {
@@ -91,7 +89,7 @@ public class RepositorioVeiculos {
                         System.out.println("Digite um novo lance mínimo:");
                         double novoLance = input.nextDouble();
                         veiculos.get(indice).setLanceMinimo(novoLance);
-                        System.out.println("Lance mínimo alterado para R$ "+ novoLance + " com sucesso!");
+                        System.out.println("Lance mínimo alterado para R$ " + novoLance + " com sucesso!");
                     }
                     case 6 -> {
                         System.out.println("Digite um novo estado de conseervação:");
@@ -99,24 +97,10 @@ public class RepositorioVeiculos {
                         veiculos.get(indice).setDescricao(novaConservacao);
                         System.out.println("Descrição alterada com sucesso!");
                     }
-                    case 7 -> {
-                        System.out.println();
-
-                    }
-                    case 8 -> {
-                        System.out.println();
-
-                    }
-                    case 9 -> {
-                        System.out.println();
-
-                    }
-                    default -> {System.out.println("Opção não disponivel!");}
-
+                    default -> System.out.println("Opção não disponivel!");
                 }
-              //  veiculos.get(indice)
-
-            }
+            } else System.out.println("Veiculo não encontrado!");
+            indice++;
         }
     }
 
@@ -126,6 +110,7 @@ public class RepositorioVeiculos {
             if (veiculos.get(indice).getId().equals(numero)) {
                 veiculos.remove(indice);
             }
+            indice++;
         }
     }
 
@@ -139,7 +124,7 @@ public class RepositorioVeiculos {
             System.out.println("ID: " + veiculos.get(indice).getId());
             System.out.println("Valor da divida: R$ " + veiculos.get(indice).getValorDivida()
                 + " Lance Mínimo: R$ " + veiculos.get(indice).getLanceMinimo() + "\n");
+            indice++;
         }
     }
-
 }
