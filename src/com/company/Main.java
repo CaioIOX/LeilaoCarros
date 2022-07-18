@@ -1,12 +1,9 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Main implements GlobalRepo{
+    static int resposta;
 
     public static void main (String[] args) {
-
-        int resposta;
 
         //Menu
         do {
@@ -42,6 +39,10 @@ public class Main implements GlobalRepo{
                     }
                 }
                 case 2 -> {
+                    if (veiculosMain.isEmpty()) {
+                        System.out.println("Não há veiculos cadastrados!");
+                        break;
+                    }
                     veiculosMain.imprimirVeiculos();
                     System.out.println("""
 
@@ -58,7 +59,7 @@ public class Main implements GlobalRepo{
                             veiculosMain.editarVeiculo(editarVeiculo);
                             break;
                         case 2:
-                            System.out.println("Qual veículo deseja remover?");
+                            System.out.println("Qual ID do veículo que deseja remover?");
                             String removerVeiculo = input.next();
                             veiculosMain.removerVeiculo(removerVeiculo);
                             break;

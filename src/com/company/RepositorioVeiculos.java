@@ -1,16 +1,17 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 // Repositorio para os veiculos cadastrados
-public class RepositorioVeiculos extends AbstractPagamentos {
+public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRepo {
     private final ArrayList<Veiculos> veiculos;
-    private final Scanner input;
 
     public RepositorioVeiculos() {
         veiculos = new ArrayList<>();
-        input = new Scanner(System.in);
+    }
+
+    public ArrayList<Veiculos> getVeiculos() {
+        return veiculos;
     }
 
     public void adicionar(Veiculos v) {
@@ -116,6 +117,8 @@ public class RepositorioVeiculos extends AbstractPagamentos {
             System.out.println("##########");
             System.out.println("Veículo: " + (indice + 1));
             System.out.println("ID: " + veiculos.get(indice).getId());
+            System.out.println("Veiculo: " + marcaMain.getMarca().get(indice).getNome() +
+                    " " + modeloMain.getModelo().get(indice).getNome());
             System.out.println("Valor da divida: R$ " + veiculos.get(indice).getValorDivida()
                     + " Lance Mínimo: R$ " + veiculos.get(indice).getLanceMinimo() + "\n");
         }
@@ -176,5 +179,10 @@ public class RepositorioVeiculos extends AbstractPagamentos {
                 }
             }
         }
+    }
+
+    public boolean isEmpty() {
+
+        return veiculos.size() == 0;
     }
 }

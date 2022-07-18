@@ -6,11 +6,11 @@ public class Modelo {
     private String tipoDeCombustivel;
     private Marca marca;
 
-    public Modelo(String nome, String motorizacao, String tipoDeCombustivel) {
+    public Modelo(String nome, String motorizacao, String tipoDeCombustivel, Marca marca) {
         this.nome = nome;
         this.motorizacao = motorizacao;
         this.tipoDeCombustivel = tipoDeCombustivel;
-        //this.marca = marca;
+        this.marca = marca;
     }
 
     public Marca getMarca() {

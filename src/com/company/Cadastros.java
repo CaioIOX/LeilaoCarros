@@ -1,14 +1,11 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Cadastros implements GlobalRepo {
-    private final Scanner input = new Scanner(System.in);
     private final RepositorioVeiculos veiculosCadastro;
     private final RepositorioMarca marcaCadastro;
     private final RepositorioModelo modeloCadastro;
-    String marcaEscolhida;
-    String modeloEscolhido;
+    Marca marcaEscolhida;
+    Modelo modeloEscolhido;
 
     public Cadastros(RepositorioVeiculos leilao, RepositorioMarca marca, RepositorioModelo modelo) {
         this.veiculosCadastro = leilao;
@@ -31,6 +28,10 @@ public class Cadastros implements GlobalRepo {
 
     // Metodo para cadastro de modelo
     public void inserirModelo() {
+        System.out.println("Digite o número correspondente da marca do veiculo: ");
+        marcaCadastro.imprimirMarcas();
+        int marcaId = input.nextInt();
+        marcaEscolhida = marcaMain.getMarca().get(marcaId - 1);
         System.out.println("Digite o nome do modelo: ");
         String nomeModelo = input.next();
         System.out.println("Digite o tipo do motor: ");
@@ -38,12 +39,16 @@ public class Cadastros implements GlobalRepo {
         System.out.println("Digite o tipo de combustive: ");
         String tipoCombustivel = input.next();
 
-        modeloCadastro.adicionar(new Modelo(nomeModelo, motorizacao, tipoCombustivel));
+        modeloCadastro.adicionar(new Modelo(nomeModelo, motorizacao, tipoCombustivel, marcaEscolhida));
         System.out.println("Modelo cadastrado com sucesso!");
     }
 
     // Metodo para cadastro de veiculos
     void inserirVeiculos() {
+        System.out.println("Digite o número correspondente do modelo do veículo: ");
+        modeloCadastro.imprimirModelo();
+        int modeloId = input.nextInt();
+        modeloEscolhido = modeloMain.getModelo().get(modeloId -1);
         System.out.println("Digite um id para o veículo: ");
         String id = input.next();
         System.out.println("Digite a cor do veículo: ");
@@ -58,24 +63,11 @@ public class Cadastros implements GlobalRepo {
         double lanceMinimo = input.nextDouble();
         System.out.println("Descreva o estado de conservação do veículo: ");
         String descricao = input.next();
-        System.out.println("Escolha qual a marca do veiculo: ");
-        marcaCadastro.imprimirMarcas();
-        marcaEscolhida = input.next();
-        System.out.println("Escolha qual o modelo do veículo: ");
-        modeloCadastro.imprimirModelo();
-        modeloEscolhido = input.next();
 
         veiculosCadastro.adicionar(new Veiculos(cor, id, ano, quilometragem, valorDivida, lanceMinimo,
-                descricao));
+                descricao, modeloEscolhido));
         System.out.println("Veiculo cadastrado com sucesso!");
 
     }
 
-    public String getMarca() {
-        return marcaEscolhida;
-    }
-
-    public String getModelo() {
-        return modeloEscolhido;
-    }
 }

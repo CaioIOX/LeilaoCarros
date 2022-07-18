@@ -8,7 +8,6 @@ public class Veiculos extends AbstractPagamentos {
     private double valorDivida;
     private double lanceMinimo;
     private String descricao;
-    private Marca marca;
     private Modelo modelo;
 
     public Veiculos(
@@ -18,7 +17,8 @@ public class Veiculos extends AbstractPagamentos {
         int quilometragem,
         double valorDivida,
         double lanceMinimo,
-        String descricao) {
+        String descricao,
+        Modelo modelo) {
 
         this.cor = cor;
         this.id = id;
@@ -27,6 +27,7 @@ public class Veiculos extends AbstractPagamentos {
         this.valorDivida = valorDivida;
         this.lanceMinimo = lanceMinimo;
         this.descricao = descricao;
+        this.modelo = modelo;
 
     }
 

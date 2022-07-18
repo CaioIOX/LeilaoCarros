@@ -1,10 +1,5 @@
 package com.company;
 
-import com.company.Cadastros;
-import com.company.RepositorioMarca;
-import com.company.RepositorioModelo;
-import com.company.RepositorioVeiculos;
-
 import java.util.Scanner;
 
 interface GlobalRepo {

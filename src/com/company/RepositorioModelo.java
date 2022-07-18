@@ -1,15 +1,16 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class RepositorioModelo {
+public class RepositorioModelo implements GlobalRepo {
     private final ArrayList<Modelo> modelo;
-    private final Scanner input;
 
     public RepositorioModelo() {
         modelo = new ArrayList<>();
-        input = new Scanner(System.in);
+    }
+
+    public ArrayList<Modelo> getModelo() {
+        return modelo;
     }
 
     public void adicionar(Modelo m) {
@@ -74,7 +75,7 @@ public class RepositorioModelo {
 
     public void imprimirModelo() {
         for (int indice = 0; indice < modelo.size(); indice++) {
-            System.out.println("# - " + modelo.get(indice).getNome());
+            System.out.println("#" + (indice+1) + " - " + modelo.get(indice).getNome());
         }
     }
 

@@ -3,14 +3,13 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class RepositorioMarca {
+public class RepositorioMarca implements GlobalRepo{
 
     private static ArrayList<Marca> marca;
-    private final Scanner input;
+
 
     public RepositorioMarca() {
         marca = new ArrayList<>();
-        input = new Scanner(System.in);
     }
 
     public ArrayList<Marca> getMarca() {
@@ -83,7 +82,7 @@ public class RepositorioMarca {
 
     public void imprimirMarcas() {
         for (int indice = 0; indice < marca.size(); indice++) {
-            System.out.println("# - " + marca.get(indice).getNome());
+            System.out.println("#" + (indice+1) + " - " + marca.get(indice).getNome());
         }
     }
 
