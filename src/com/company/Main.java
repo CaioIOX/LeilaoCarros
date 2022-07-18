@@ -25,7 +25,15 @@ public class Main implements GlobalRepo{
                     resposta = input.nextInt();
                     switch (resposta) {
                         case 1 -> cadastro.inserirMarca();
-                        case 2 -> cadastro.inserirModelo();
+                        case 2 -> {
+                            if (marcaMain.isEmpty()) {
+                                System.out.println("Primeiro cadastre uma marca!");
+                                cadastro.inserirMarca();
+                            } else if (modeloMain.isEmpty()) {
+                                System.out.println("Primeiro cadaste um modelo!");
+                                cadastro.inserirModelo();
+                            } else cadastro.inserirModelo();
+                        }
                         default -> {
                             if (marcaMain.isEmpty()) {
                                 System.out.println("Primeiro cadastre uma marca!");
@@ -50,7 +58,8 @@ public class Main implements GlobalRepo{
                             1 - Alterar as informações de algum veículo
                             2 - Remover veículo da lista
                             3 - Ver todas as informações do veiculo
-                            4 - Voltar ao menu anterior""");
+                            4 - Comprar um veículo
+                            5 - Voltar ao menu anterior""");
                     int respostaListaVeiculos = input.nextInt();
                     switch (respostaListaVeiculos) {
                         case 1:
@@ -69,6 +78,8 @@ public class Main implements GlobalRepo{
                             veiculosMain.procurarVeiculos(buscaVeiculo);
                             break;
                         case 4:
+                            veiculosMain.compraVeiculos();
+                        case 5:
                             break;
                     }
                 }

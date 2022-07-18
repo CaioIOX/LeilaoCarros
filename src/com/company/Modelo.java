@@ -1,6 +1,6 @@
 package com.company;
 
-public class Modelo {
+public class Modelo implements GlobalRepo{
     private String nome;
     private String motorizacao;
     private String tipoDeCombustivel;

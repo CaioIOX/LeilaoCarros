@@ -5,6 +5,7 @@ import java.util.ArrayList;
 // Repositorio para os veiculos cadastrados
 public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRepo {
     private final ArrayList<Veiculos> veiculos;
+    Modelo modeloEscolhido;
 
     public RepositorioVeiculos() {
         veiculos = new ArrayList<>();
@@ -26,8 +27,9 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
             if (veiculos.get(indice).getId().equals(id.toLowerCase())) {
                 temp = veiculos.get(indice);
                 System.out.println("Veículo: " + indice);
-                System.out.println("ID: " + veiculos.get(indice).getId()
-                        + " Cor: " + veiculos.get(indice).getCor());
+                System.out.println("ID: " + veiculos.get(indice).getId());
+                System.out.println(marcaMain.getMarca().get(indice).getNome() + " " +
+                        modeloMain.getModelo().get(indice).getNome() + " Cor: " + veiculos.get(indice).getCor());
                 System.out.println("Ano: " + veiculos.get(indice).getAno()
                         + " Quilometragem: " + veiculos.get(indice).getQuilometragem()
                         + " Km rodados");
@@ -45,8 +47,8 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
 
     // metodo para alterar as informações de um veiculos
     public void editarVeiculo(String id) {
-        for (Veiculos veiculo : veiculos) {
-            if (veiculo.getId().equals(id.toLowerCase())) {
+        for (int indice = 0; indice < veiculos.size(); indice++) {
+            if (veiculos.get(indice).getId().equals(id.toLowerCase())) {
                 System.out.println("""
                         O que deseja alterar?
                         1 - Cor
@@ -54,44 +56,52 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                         3 - Quilometragem
                         4 - Valor da divida
                         5 - Lance mínimo
-                        6 - Estado de econservação""");
+                        6 - Estado de econservação
+                        7 - Modelo""");
                 int resposta = input.nextInt();
                 switch (resposta) {
                     case 1 -> {
                         System.out.println("Escolha uma nova cor:");
                         String novaCor = input.next().toLowerCase();
-                        veiculo.setCor(novaCor);
+                        veiculos.get(indice).setCor(novaCor);
                         System.out.println("Cor alterada para " + novaCor + " com sucesso!");
                     }
                     case 2 -> {
                         System.out.println("Escolha um novo ano:");
                         int novoAno = input.nextInt();
-                        veiculo.setAno(novoAno);
+                        veiculos.get(indice).setAno(novoAno);
                         System.out.println("Ano alterado para " + novoAno + " com sucesso!");
                     }
                     case 3 -> {
                         System.out.println("Escolha uma nova quilometragem:");
                         int novaKm = input.nextInt();
-                        veiculo.setQuilometragem(novaKm);
+                        veiculos.get(indice).setQuilometragem(novaKm);
                         System.out.println("Quilometragem alterada para " + novaKm + "kms rodados com sucesso!");
                     }
                     case 4 -> {
                         System.out.println("Digite um nvoo valor da dívida: ");
                         double novaDivida = input.nextDouble();
-                        veiculo.setValorDivida(novaDivida);
+                        veiculos.get(indice).setValorDivida(novaDivida);
                         System.out.println("Valor da dívida alterada para R$ " + novaDivida + " com sucesso!");
                     }
                     case 5 -> {
                         System.out.println("Digite um novo lance mínimo:");
                         double novoLance = input.nextDouble();
-                        veiculo.setLanceMinimo(novoLance);
+                        veiculos.get(indice).setLanceMinimo(novoLance);
                         System.out.println("Lance mínimo alterado para R$ " + novoLance + " com sucesso!");
                     }
                     case 6 -> {
                         System.out.println("Digite um novo estado de conseervação:");
                         String novaConservacao = input.next().toLowerCase();
-                        veiculo.setDescricao(novaConservacao);
+                        veiculos.get(indice).setDescricao(novaConservacao);
                         System.out.println("Descrição alterada com sucesso!");
+                    }
+                    case 7 -> {
+                        System.out.println("Digite o número correspondente do novo modelo do veículo: ");
+                        modeloMain.imprimirModelo();
+                        int modeloId = input.nextInt();
+                        modeloEscolhido = modeloMain.getModelo().get(modeloId - 1);
+                        veiculosMain.getVeiculos().get(indice).setModelo(modeloEscolhido);
                     }
                     default -> System.out.println("Opção não disponivel!");
                 }
@@ -124,8 +134,7 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
         }
     }
 
-    public void compraVeiculos(double lance) {
-
+    public void compraVeiculos() {
         imprimirVeiculos();
         System.out.println("Digite o id do veiculo que deseja comprar: ");
         String id = input.next().toLowerCase();
@@ -133,7 +142,7 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
         for (Veiculos veiculo : veiculos) {
             if (veiculo.getId().equals(id)) {
                 System.out.println("Quanto deseja pagar?");
-                lance = input.nextDouble();
+                double lance = input.nextDouble();
                 if (lance < veiculo.getLanceMinimo()) {
                     System.out.println("Lance menor que lance minimo! Tente com um lance maior");
                 } else {

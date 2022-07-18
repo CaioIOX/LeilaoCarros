@@ -1,6 +1,6 @@
 package com.company;
 
-public class Veiculos extends AbstractPagamentos {
+public class Veiculos extends AbstractPagamentos implements GlobalRepo{
     private String cor;
     private String id;
     private int ano;
@@ -31,25 +31,13 @@ public class Veiculos extends AbstractPagamentos {
 
     }
 
-//    public String getMarca() {
-//        return marca.getNome()
-//            + "\nPais de origem: " + marca.getPaisDeOrigem()
-//            + "\nPais de produção: " + marca.getPaisDeProducao();
-//    }
+    public Modelo getModelo() {
+        return modelo;
+    }
 
-//    public void setMarca(Marca marca) {
-//        this.marca = marca;
-//    }
-//
-//    public String getModelo() {
-//        return modelo.getNome()
-//            + "\nMotorização: " + modelo.getMotorizacao()
-//            + "\nTipo de combustivel: " + modelo.getTipoDeCombustivel();
-//    }
-//
-//    public void setModelo(Modelo modelo) {
-//        this.modelo = modelo;
-//    }
+    public void setModelo(Modelo modelo) {
+        this.modelo = modelo;
+    }
 
     public String getDescricao() {
         return descricao;
