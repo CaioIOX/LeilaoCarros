@@ -7,21 +7,21 @@ public class Main implements GlobalRepo {
 
         //Menu
         do {
-            System.out.println("""
-                    ******* Bem vindo ao leilões de automóveis!! *******
-                    Digite o número da opção que deseja realizar:
-                    1 - Cadastro de veículo
-                    2 - Ver lista de veículos
-                    3 - Sair""");
+            System.out.println(
+                   "******* Bem vindo ao leilões de automóveis!! *******" +
+                   "\nDigite o número da opção que deseja realizar:" +
+                   "\n1 - Cadastro de veículo" +
+                   "\n2 - Ver lista de veículos" +
+                   "\n3 - Sair");
             resposta = input.nextInt();
 
             switch (resposta) {
                 case 1 -> {
-                    System.out.println("""
-                            Você deseja cadastrar:\s
-                            1 - Marca
-                            2 - Modelo
-                            3 - Veiculo""");
+                    System.out.println(
+                            "Você deseja cadastrar:" +
+                            "\n1 - Marca" +
+                            "\n2 - Modelo" +
+                            "\n3 - Veiculo");
                     resposta = input.nextInt();
                     switch (resposta) {
                         case 1 -> cadastro.inserirMarca();
@@ -52,16 +52,15 @@ public class Main implements GlobalRepo {
                         break;
                     }
                     veiculosMain.imprimirVeiculos();
-                    System.out.println("""
-
-                            Você deseja:\s
-                            1 - Alterar as informações de algum veículo
-                            2 - Alterar as informações de alguma marca
-                            3 - Alterar as informaões de algum modelo
-                            4 - Remover veículo da lista
-                            5 - Ver todas as informações do veiculo
-                            6 - Comprar um veículo
-                            7 - Voltar ao menu anterior""");
+                    System.out.println(
+                            "Você deseja:" +
+                            "\n1 - Alterar as informações de algum veículo" +
+                            "\n2 - Alterar as informações de alguma marca" +
+                            "\n3 - Alterar as informaões de algum modelo" +
+                            "\n4 - Remover veículo da lista" +
+                            "\n5 - Ver todas as informações do veiculo" +
+                            "\n6 - Comprar um veículo" +
+                            "\n7 - Voltar ao menu anterior");
                     int respostaListaVeiculos = input.nextInt();
                     switch (respostaListaVeiculos) {
                         case 1:

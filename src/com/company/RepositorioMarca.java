@@ -39,11 +39,11 @@ public class RepositorioMarca implements GlobalRepo {
     public void editarMarca(String nome) {
         for (int indice = 0; indice < marca.size(); indice++) {
             if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
-                System.out.println("""
-                        O que deseja alterar?
-                        1 - Nome da Marca
-                        2 - País de Origem
-                        3 - País de produção""");
+                System.out.println(
+                        "O que deseja alterar?" +
+                        "\n1 - Nome da Marca" +
+                        "\n2 - País de Origem" +
+                        "\n3 - País de produção");
                 int respostaAlterar = input.nextInt();
                 switch (respostaAlterar) {
                     case 1 -> {

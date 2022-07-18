@@ -37,11 +37,11 @@ public class RepositorioModelo implements GlobalRepo {
     public void editarModelo(String nome) {
         for (int indice = 0; indice < modelo.size(); indice++) {
             if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
-                System.out.println("""
-                        O que deseja alterar?
-                        1 - Nome do modelo
-                        2 - Motorização
-                        3 - Tipo de gasolina""");
+                System.out.println(
+                        "O que deseja alterar?" +
+                        "\n1 - Nome do modelo" +
+                        "\n2 - Motorização" +
+                        "\n3 - Tipo de gasolina");
                 int respostaAlterar = input.nextInt();
                 switch (respostaAlterar) {
                     case 1 -> {

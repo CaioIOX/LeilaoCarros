@@ -50,15 +50,15 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
     public void editarVeiculo(String id) {
         for (int indice = 0; indice < veiculos.size(); indice++) {
             if (veiculos.get(indice).getId().equals(id.toLowerCase())) {
-                System.out.println("""
-                        O que deseja alterar?
-                        1 - Cor
-                        2 - Ano
-                        3 - Quilometragem
-                        4 - Valor da divida
-                        5 - Lance mínimo
-                        6 - Estado de econservação
-                        7 - Modelo""");
+                System.out.println(
+                        "O que deseja alterar?" +
+                        "\n1 - Cor" +
+                        "\n2 - Ano" +
+                        "\n3 - Quilometragem" +
+                        "\n4 - Valor da divida" +
+                        "\n5 - Lance mínimo" +
+                        "\n6 - Estado de econservação" +
+                        "\n7 - Modelo");
                 int resposta = input.nextInt();
                 switch (resposta) {
                     case 1 -> {
@@ -147,12 +147,12 @@ public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRep
                 if (lance < veiculo.getLanceMinimo()) {
                     System.out.println("Lance insuficiente!");
                 } else {
-                    System.out.println("""
-                            Qual forma de pagamento deseja utilizar?:
-                            1 - A vista
-                            2 - Em 12x sem juros
-                            3 - Em 24x sem juros
-                            4 - Desistir da compra\s""");
+                    System.out.println(
+                            "Qual forma de pagamento deseja utilizar?:" +
+                            "\n1 - A vista" +
+                            "\n2 - Em 12x sem juros" +
+                            "\n3 - Em 24x sem juros" +
+                            "\n4 - Desistir da compra");
                     int respostaCompra = input.nextInt();
                     switch (respostaCompra) {
                         case 1 -> {
