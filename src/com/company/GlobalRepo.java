@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 interface GlobalRepo {
     Scanner input = new Scanner(System.in);
-    RepositorioVeiculos veiculosMain = new RepositorioVeiculos();
-    RepositorioMarca marcaMain = new RepositorioMarca();
-    RepositorioModelo modeloMain = new RepositorioModelo();
-    Cadastros cadastro = new Cadastros(veiculosMain, marcaMain, modeloMain);
+    RepositorioVeiculos repositorioDeVeiculosGlobal = new RepositorioVeiculos();
+    RepositorioMarca repositorioDeMarcasGlobal = new RepositorioMarca();
+    RepositorioModelo repositorioDeModelosGlobal = new RepositorioModelo();
+    Cadastros cadastro = new Cadastros(repositorioDeVeiculosGlobal, repositorioDeMarcasGlobal, repositorioDeModelosGlobal);
     CompraDeVeiculos compraVeiculos = new CompraDeVeiculos();
 }

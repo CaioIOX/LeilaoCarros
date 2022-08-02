@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Marca {
+public class Marca implements GlobalRepo {
     private String nome;
     private String paisDeOrigem;
     private String paisDeProducao;

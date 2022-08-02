@@ -13,15 +13,15 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
             if (compareWithInput(id, indice)) {
                 System.out.println("Veículo: " + indice);
                 System.out.println("ID: " + idDoVeiculo(indice));
-                System.out.println(marcaMain.nomeDaMarca(indice) + " " +
-                        modeloMain.nomeDoModelo(indice) + " Cor: " + corDoVeiculo(indice));
+                System.out.println(repositorioDeMarcasGlobal.nomeDaMarca(indice) + " " +
+                        repositorioDeModelosGlobal.nomeDoModelo(indice) + " Cor: " + corDoVeiculo(indice));
                 System.out.println("Ano: " + anoDoVeiculo(indice)
                         + " Quilometragem: " + quilometragemDoVeiculo(indice)
                         + " Km rodados");
-                System.out.println("País de fabricação: " + marcaMain.paisDeOrigemDaMarca(indice) +
-                        " País de produção: " + marcaMain.paisDeProducaoDaMarca(indice));
-                System.out.println("Motor: " + modeloMain.motorizacaoDoModelo(indice) +
-                        " Tipos de combustivel: " + modeloMain.tipoDeCombustivelDoModelo(indice));
+                System.out.println("País de fabricação: " + repositorioDeMarcasGlobal.paisDeOrigemDaMarca(indice) +
+                        " País de produção: " + repositorioDeMarcasGlobal.paisDeProducaoDaMarca(indice));
+                System.out.println("Motor: " + repositorioDeModelosGlobal.motorizacaoDoModelo(indice) +
+                        " Tipos de combustivel: " + repositorioDeModelosGlobal.tipoDeCombustivelDoModelo(indice));
                 System.out.println("Valor da divida: R$ " + dividaDoVeiculo(indice)
                         + " Lance Mínimo: R$ " + lanceMinimoDoVeiculo(indice) + "");
                 System.out.println("Estado de conservação: " + descricaoDoVeiculo(indice));
@@ -84,10 +84,10 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                     }
                     case 7 -> {
                         System.out.println("Digite o número correspondente do novo modelo do veículo: ");
-                        modeloMain.imprimirModelo();
+                        repositorioDeModelosGlobal.imprimirModelo();
                         int modeloId = input.nextInt();
-                        modeloEscolhido = modeloMain.getModelo(modeloId-1);
-                        veiculosMain.getVeiculos(indice).setModelo(modeloEscolhido);
+                        modeloEscolhido = repositorioDeModelosGlobal.getModelo(modeloId-1);
+                        repositorioDeVeiculosGlobal.getVeiculos(indice).setModelo(modeloEscolhido);
                     }
                     default -> System.out.println("Opção não disponivel!");
                 }
@@ -111,8 +111,8 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
             System.out.println("##########");
             System.out.println("Veículo: " + (indice + 1));
             System.out.println("ID: " + idDoVeiculo(indice));
-            System.out.println("Veiculo: " + marcaMain.nomeDaMarca(indice) +
-                    " " + modeloMain.nomeDoModelo(indice));
+            System.out.println("Veiculo: " + repositorioDeMarcasGlobal.nomeDaMarca(indice) +
+                    " " + repositorioDeModelosGlobal.nomeDoModelo(indice));
             System.out.println("Valor da divida: R$ " + dividaDoVeiculo(indice)
                     + " Lance Mínimo: R$ " + lanceMinimoDoVeiculo(indice) + "\n");
         }

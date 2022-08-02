@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Veiculos extends AbstractPagamentos implements GlobalRepo{
+public class Veiculos implements GlobalRepo{
     private String cor;
     private String id;
     private int ano;

@@ -26,19 +26,19 @@ public class Main implements GlobalRepo {
                     switch (resposta) {
                         case 1 -> cadastro.cadastrarMarca();
                         case 2 -> {
-                            if (marcaMain.isEmpty()) {
+                            if (repositorioDeMarcasGlobal.isEmpty()) {
                                 System.out.println("Primeiro cadastre uma marca!");
                                 cadastro.cadastrarMarca();
-                            } else if (modeloMain.isEmpty()) {
+                            } else if (repositorioDeModelosGlobal.isEmpty()) {
                                 System.out.println("Primeiro cadaste um modelo!");
                                 cadastro.cadastrarModelo();
                             } else cadastro.cadastrarModelo();
                         }
                         default -> {
-                            if (marcaMain.isEmpty()) {
+                            if (repositorioDeMarcasGlobal.isEmpty()) {
                                 System.out.println("Primeiro cadastre uma marca!");
                                 cadastro.cadastrarMarca();
-                            } else if (modeloMain.isEmpty()) {
+                            } else if (repositorioDeModelosGlobal.isEmpty()) {
                                 System.out.println("Primeiro cadaste um modelo!");
                                 cadastro.cadastrarModelo();
                             } else cadastro.cadastrarVeiculos();
@@ -47,11 +47,11 @@ public class Main implements GlobalRepo {
                     }
                 }
                 case 2 -> {
-                    if (veiculosMain.isEmpty()) {
+                    if (repositorioDeVeiculosGlobal.isEmpty()) {
                         System.out.println("Não há veiculos cadastrados!");
                         break;
                     }
-                    veiculosMain.imprimirVeiculos();
+                    repositorioDeVeiculosGlobal.imprimirVeiculos();
                     System.out.println(
                             "Você deseja:" +
                             "\n1 - Alterar as informações de algum veículo" +
@@ -66,29 +66,29 @@ public class Main implements GlobalRepo {
                         case 1:
                             System.out.println("Digite o ID do veiculo que deseja alterar as informações: ");
                             String editarVeiculo = input.next();
-                            veiculosMain.editarVeiculo(editarVeiculo);
+                            repositorioDeVeiculosGlobal.editarVeiculo(editarVeiculo);
                             break;
                         case 2:
                             System.out.println("Digite o nome da marca que deseja alterar as informações");
                             String editarMarca = input.next();
-                            marcaMain.editarMarca(editarMarca);
+                            repositorioDeMarcasGlobal.editarMarca(editarMarca);
                             break;
                         case 3:
                             System.out.println("Digite o nome do modelo que deseja alterar as informações");
                             String editarModelo = input.next();
-                            modeloMain.editarModelo(editarModelo);
+                            repositorioDeModelosGlobal.editarModelo(editarModelo);
                         case 4:
                             System.out.println("Qual ID do veículo que deseja remover?");
                             String removerVeiculo = input.next();
-                            veiculosMain.removerVeiculo(removerVeiculo);
+                            repositorioDeVeiculosGlobal.removerVeiculo(removerVeiculo);
                             break;
                         case 5:
                             System.out.println("Digite o id do veículo que deseja buscar:");
                             String buscaVeiculo = input.next();
-                            veiculosMain.procurarVeiculos(buscaVeiculo);
+                            repositorioDeVeiculosGlobal.procurarVeiculos(buscaVeiculo);
                             break;
                         case 6:
-                            veiculosMain.compraVeiculos.compraVeiculos();
+                            repositorioDeVeiculosGlobal.compraVeiculos.compraVeiculos();
                             break;
                         case 7:
                             break;
