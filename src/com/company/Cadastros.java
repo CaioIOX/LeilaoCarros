@@ -14,7 +14,7 @@ public class Cadastros implements GlobalRepo {
     }
 
     // Metodo para cadastro de marcas
-    public void inserirMarca() {
+    public void cadastrarMarca() {
         System.out.println("Digite o nome da marca: ");
         String nomeMarca = input.next();
         System.out.println("Digte o país de origem: ");
@@ -27,7 +27,7 @@ public class Cadastros implements GlobalRepo {
     }
 
     // Metodo para cadastro de modelo
-    public void inserirModelo() {
+    public void cadastrarModelo() {
         System.out.println("Digite o número correspondente da marca do veiculo: ");
         marcaCadastro.imprimirMarcas();
         int marcaId = input.nextInt();
@@ -44,7 +44,7 @@ public class Cadastros implements GlobalRepo {
     }
 
     // Metodo para cadastro de veiculos
-    void inserirVeiculos() {
+    void cadastrarVeiculos() {
         System.out.println("Digite o número correspondente do modelo do veículo: ");
         modeloCadastro.imprimirModelo();
         int modeloId = input.nextInt();
@@ -64,7 +64,7 @@ public class Cadastros implements GlobalRepo {
         System.out.println("Descreva o estado de conservação do veículo: ");
         String descricao = input.next();
 
-        veiculosCadastro.adicionar(new Veiculos(cor, id, ano, quilometragem, valorDivida, lanceMinimo,
+        veiculosCadastro.adicionarVeiculo(new Veiculos(cor, id, ano, quilometragem, valorDivida, lanceMinimo,
                 descricao, modeloEscolhido));
         System.out.println("Veiculo cadastrado com sucesso!");
 

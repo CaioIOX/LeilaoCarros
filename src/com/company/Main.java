@@ -24,24 +24,24 @@ public class Main implements GlobalRepo {
                             "\n3 - Veiculo");
                     resposta = input.nextInt();
                     switch (resposta) {
-                        case 1 -> cadastro.inserirMarca();
+                        case 1 -> cadastro.cadastrarMarca();
                         case 2 -> {
                             if (marcaMain.isEmpty()) {
                                 System.out.println("Primeiro cadastre uma marca!");
-                                cadastro.inserirMarca();
+                                cadastro.cadastrarMarca();
                             } else if (modeloMain.isEmpty()) {
                                 System.out.println("Primeiro cadaste um modelo!");
-                                cadastro.inserirModelo();
-                            } else cadastro.inserirModelo();
+                                cadastro.cadastrarModelo();
+                            } else cadastro.cadastrarModelo();
                         }
                         default -> {
                             if (marcaMain.isEmpty()) {
                                 System.out.println("Primeiro cadastre uma marca!");
-                                cadastro.inserirMarca();
+                                cadastro.cadastrarMarca();
                             } else if (modeloMain.isEmpty()) {
                                 System.out.println("Primeiro cadaste um modelo!");
-                                cadastro.inserirModelo();
-                            } else cadastro.inserirVeiculos();
+                                cadastro.cadastrarModelo();
+                            } else cadastro.cadastrarVeiculos();
                             resposta = 0;
                         }
                     }

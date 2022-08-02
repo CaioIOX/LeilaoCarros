@@ -6,18 +6,15 @@ import java.util.ArrayList;
 public class RepositorioVeiculos extends AbstractPagamentos implements GlobalRepo {
     private final ArrayList<Veiculos> veiculos;
     Modelo modeloEscolhido;
-
     public RepositorioVeiculos() {
         veiculos = new ArrayList<>();
     }
-
     public ArrayList<Veiculos> getVeiculos() {
         return veiculos;
     }
 
-    public void adicionar(Veiculos v) {
+    public void adicionarVeiculo(Veiculos v) {
         veiculos.add(v);
-
     }
 
     // Metodo para listar todas as informações de um determinado veiculo

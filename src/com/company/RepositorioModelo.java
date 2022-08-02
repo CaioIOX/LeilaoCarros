@@ -3,24 +3,25 @@ package com.company;
 import java.util.ArrayList;
 
 public class RepositorioModelo implements GlobalRepo {
-    private final ArrayList<Modelo> modelo;
 
+    private final ArrayList<Modelo> modelo;
     public RepositorioModelo() {
         modelo = new ArrayList<>();
     }
-
     public ArrayList<Modelo> getModelo() {
         return modelo;
     }
 
-    public void adicionar(Modelo m) {
-        modelo.add(m);
+    public boolean compareWithInput(String nome, int indice) {
+        return modelo.get(indice).getNome().equals(nome.toLowerCase());
     }
+
+    public void adicionar(Modelo m) {modelo.add(m);}
 
     public void procurarModelo(String nome) {
         Modelo temp = null;
         for (int indice = 0; indice < modelo.size(); indice++) {
-            if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
+            if (compareWithInput(nome, indice)) {
                 temp = modelo.get(indice);
                 System.out.println("Modelo: " + modelo.get(indice).getNome());
                 System.out.println("Motorização: " + modelo.get(indice).getMotorizacao());
@@ -36,7 +37,7 @@ public class RepositorioModelo implements GlobalRepo {
 
     public void editarModelo(String nome) {
         for (int indice = 0; indice < modelo.size(); indice++) {
-            if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
+            if (compareWithInput(nome, indice)) {
                 System.out.println(
                         "O que deseja alterar?" +
                         "\n1 - Nome do modelo" +
@@ -67,8 +68,8 @@ public class RepositorioModelo implements GlobalRepo {
 
     public void removerModelo(String nome) {
         for (int indice = 0; indice < modelo.size(); indice++) {
-            if (modelo.get(indice).getNome().equals(nome.toLowerCase())) {
-                modelo.remove(indice);
+            if (compareWithInput(nome, indice)) {
+                modelo.remove(modelo.get(indice));
             }
         }
     }

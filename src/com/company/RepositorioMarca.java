@@ -5,12 +5,9 @@ import java.util.ArrayList;
 public class RepositorioMarca implements GlobalRepo {
 
     private static ArrayList<Marca> marca;
-
-
     public RepositorioMarca() {
         marca = new ArrayList<>();
     }
-
     public ArrayList<Marca> getMarca() {
         return marca;
     }
