@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Veiculos extends AbstractPagamentos implements GlobalRepo{
     private String cor;
     private String id;
@@ -9,6 +11,7 @@ public class Veiculos extends AbstractPagamentos implements GlobalRepo{
     private double lanceMinimo;
     private String descricao;
     private Modelo modelo;
+    public ArrayList<Veiculos> veiculos = new ArrayList<>();
 
     public Veiculos(
         String cor,
@@ -31,8 +34,12 @@ public class Veiculos extends AbstractPagamentos implements GlobalRepo{
 
     }
 
-    public Modelo getModelo() {
-        return modelo;
+    public Veiculos() {}
+
+    public Veiculos getVeiculos(int indice) {return veiculos.get(indice);}
+
+    public boolean compareWithInput(String id, int indice) {
+        return idDoVeiculo(indice).equals(id.toLowerCase());
     }
 
     public void setModelo(Modelo modelo) {
@@ -94,5 +101,21 @@ public class Veiculos extends AbstractPagamentos implements GlobalRepo{
     public void setLanceMinimo(double lanceMinimo) {
         this.lanceMinimo = lanceMinimo;
     }
+
+    public String idDoVeiculo(int indice) { return getVeiculos(indice).getId();}
+
+    public String corDoVeiculo(int indice) { return getVeiculos(indice).getCor();}
+
+    public String descricaoDoVeiculo(int indice) { return getVeiculos(indice).getDescricao();}
+
+    public int anoDoVeiculo(int indice) { return getVeiculos(indice).getAno();}
+
+    public int quilometragemDoVeiculo(int indice) { return getVeiculos(indice).getQuilometragem();}
+
+    public double dividaDoVeiculo(int indice) { return getVeiculos(indice).getValorDivida();}
+
+    public double lanceMinimoDoVeiculo(int indice) { return getVeiculos(indice).getLanceMinimo();}
+
+
 
 }

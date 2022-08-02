@@ -88,7 +88,7 @@ public class Main implements GlobalRepo {
                             veiculosMain.procurarVeiculos(buscaVeiculo);
                             break;
                         case 6:
-                            veiculosMain.compraVeiculos();
+                            veiculosMain.compraVeiculos.compraVeiculos();
                             break;
                         case 7:
                             break;

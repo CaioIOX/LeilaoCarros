@@ -8,4 +8,5 @@ interface GlobalRepo {
     RepositorioMarca marcaMain = new RepositorioMarca();
     RepositorioModelo modeloMain = new RepositorioModelo();
     Cadastros cadastro = new Cadastros(veiculosMain, marcaMain, modeloMain);
+    CompraDeVeiculos compraVeiculos = new CompraDeVeiculos();
 }

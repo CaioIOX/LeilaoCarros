@@ -1,16 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-
-public class RepositorioMarca implements GlobalRepo {
-
-    private static ArrayList<Marca> marca;
-    public RepositorioMarca() {
-        marca = new ArrayList<>();
-    }
-    public ArrayList<Marca> getMarca() {
-        return marca;
-    }
+public class RepositorioMarca extends Marca implements GlobalRepo {
 
     public void adicionar(Marca m) {
         marca.add(m);
@@ -19,11 +9,11 @@ public class RepositorioMarca implements GlobalRepo {
     public void procurarMarcas(String nome) {
         Marca temp = null;
         for (int indice = 0; indice < marca.size(); indice++) {
-            if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
+            if (compareWithInput(nome, indice)) {
                 temp = marca.get(indice);
-                System.out.println("Marca: " + marca.get(indice).getNome());
-                System.out.println("Pais de origem: " + marca.get(indice).getPaisDeOrigem());
-                System.out.println("Pais de produção: " + marca.get(indice).getPaisDeProducao());
+                System.out.println("Marca: " + nomeDaMarca(indice));
+                System.out.println("Pais de origem: " + paisDeOrigemDaMarca(indice));
+                System.out.println("Pais de produção: " + paisDeProducaoDaMarca(indice));
                 System.out.println();
                 break;
             }
@@ -35,7 +25,7 @@ public class RepositorioMarca implements GlobalRepo {
 
     public void editarMarca(String nome) {
         for (int indice = 0; indice < marca.size(); indice++) {
-            if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
+            if (compareWithInput(nome, indice)) {
                 System.out.println(
                         "O que deseja alterar?" +
                         "\n1 - Nome da Marca" +
@@ -66,15 +56,15 @@ public class RepositorioMarca implements GlobalRepo {
 
     public void removerMarca(String nome) {
         for (int indice = 0; indice < marca.size(); indice++) {
-            if (marca.get(indice).getNome().equals(nome.toLowerCase())) {
-                marca.remove(indice);
+            if (compareWithInput(nome, indice)) {
+                marca.remove(getMarca(indice));
             }
         }
     }
 
     public void imprimirMarcas() {
         for (int indice = 0; indice < marca.size(); indice++) {
-            System.out.println("#" + (indice + 1) + " - " + marca.get(indice).getNome());
+            System.out.println("#" + (indice + 1) + " - " + nomeDaMarca(indice));
         }
     }
 

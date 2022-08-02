@@ -31,7 +31,7 @@ public class Cadastros implements GlobalRepo {
         System.out.println("Digite o número correspondente da marca do veiculo: ");
         marcaCadastro.imprimirMarcas();
         int marcaId = input.nextInt();
-        marcaEscolhida = marcaMain.getMarca().get(marcaId - 1);
+        marcaEscolhida = marcaMain.getMarca(marcaId-1);
         System.out.println("Digite o nome do modelo: ");
         String nomeModelo = input.next();
         System.out.println("Digite o tipo do motor: ");
@@ -48,7 +48,7 @@ public class Cadastros implements GlobalRepo {
         System.out.println("Digite o número correspondente do modelo do veículo: ");
         modeloCadastro.imprimirModelo();
         int modeloId = input.nextInt();
-        modeloEscolhido = modeloMain.getModelo().get(modeloId -1);
+        modeloEscolhido = modeloMain.getModelo(modeloId-1);
         System.out.println("Digite um id para o veículo: ");
         String id = input.next();
         System.out.println("Digite a cor do veículo: ");
