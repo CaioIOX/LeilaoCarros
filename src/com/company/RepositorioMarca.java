@@ -25,31 +25,35 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
 
     public void editarMarca(String nome) {
         for (int indice = 0; indice < marca.size(); indice++) {
-            if (compareWithInput(nome, indice)) {
-                System.out.println(
+            try {
+                if (compareWithInput(nome, indice)) {
+                    System.out.println(
                         "O que deseja alterar?" +
-                        "\n1 - Nome da Marca" +
-                        "\n2 - País de Origem" +
-                        "\n3 - País de produção");
-                int respostaAlterar = input.nextInt();
-                switch (respostaAlterar) {
-                    case 1 -> {
-                        System.out.println("Digite um novo nome para a Marca: ");
-                        String respostaNome = input.next();
-                        marca.get(indice).setNome(respostaNome);
+                            "\n1 - Nome da Marca" +
+                            "\n2 - País de Origem" +
+                            "\n3 - País de produção");
+                    int respostaAlterar = input.nextInt();
+                    switch (respostaAlterar) {
+                        case 1 -> {
+                            System.out.println("Digite um novo nome para a Marca: ");
+                            String respostaNome = input.next();
+                            marca.get(indice).setNome(respostaNome);
+                        }
+                        case 2 -> {
+                            System.out.println("Digite um novo país de origem: ");
+                            String respostaPaisDeOrigem = input.next();
+                            marca.get(indice).setPaisDeOrigem(respostaPaisDeOrigem);
+                        }
+                        case 3 -> {
+                            System.out.println("Digite um novo país de produção: ");
+                            String respostaPaisDeproducao = input.next();
+                            marca.get(indice).setPaisDeProducao(respostaPaisDeproducao);
+                        }
+                        default -> System.out.println("Marca não encontrada!");
                     }
-                    case 2 -> {
-                        System.out.println("Digite um novo país de origem: ");
-                        String respostaPaisDeOrigem = input.next();
-                        marca.get(indice).setPaisDeOrigem(respostaPaisDeOrigem);
-                    }
-                    case 3 -> {
-                        System.out.println("Digite um novo país de produção: ");
-                        String respostaPaisDeproducao = input.next();
-                        marca.get(indice).setPaisDeProducao(respostaPaisDeproducao);
-                    }
-                    default -> System.out.println("Marca não encontrada!");
                 }
+            } catch (Exception e) {
+                System.out.println("Erro: dados invalidos");
             }
         }
     }

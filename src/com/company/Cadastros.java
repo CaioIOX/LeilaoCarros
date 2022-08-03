@@ -20,7 +20,7 @@ public class Cadastros implements GlobalRepo {
                 paisProducao));
             System.out.println("Marca cadastrada com sucesso!");
         } catch (Exception e) {
-            System.out.println("Erro: dados incorretos");
+            System.out.println("Erro: dados invalidos");
         }
     }
 
@@ -45,7 +45,7 @@ public class Cadastros implements GlobalRepo {
                 marcaEscolhida));
             System.out.println("Modelo cadastrado com sucesso!");
         } catch (Exception e) {
-            System.out.println("Erro: dados incorretos");
+            System.out.println("Erro: dados invalidos");
         }
     }
 
@@ -82,7 +82,7 @@ public class Cadastros implements GlobalRepo {
                 modeloEscolhido));
             System.out.println("Veiculo cadastrado com sucesso!");
         } catch (Exception e) {
-            System.out.println("Erro: dados incorretos");
+            System.out.println("Erro: dados invalidos");
         }
 
     }
