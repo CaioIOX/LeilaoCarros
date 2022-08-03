@@ -43,7 +43,8 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                         "\n4 - Valor da divida" +
                         "\n5 - Lance mínimo" +
                         "\n6 - Estado de econservação" +
-                        "\n7 - Modelo");
+                        "\n7 - Modelo" +
+                        "\n8 - Id do veículo");
                 int resposta = input.nextInt();
                 switch (resposta) {
                     case 1 -> {
@@ -77,7 +78,7 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                         System.out.println("Lance mínimo alterado para R$ " + novoLance + " com sucesso!");
                     }
                     case 6 -> {
-                        System.out.println("Digite um novo estado de conseervação:");
+                        System.out.println("Digite um novo estado de conservação:");
                         String novaConservacao = input.next().toLowerCase();
                         veiculos.get(indice).setDescricao(novaConservacao);
                         System.out.println("Descrição alterada com sucesso!");
@@ -87,6 +88,12 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                         repositorioDeModelosGlobal.imprimirModelo();
                         int modeloId = input.nextInt();
                         modeloEscolhido = repositorioDeModelosGlobal.getModelo(modeloId-1);
+                        repositorioDeVeiculosGlobal.getVeiculos(indice).setModelo(modeloEscolhido);
+                    }
+                    case 8 -> {
+                        System.out.println("Digite um novo id para o veículo: ");
+                        String novoId = input.next();
+                        veiculos.get(indice).setId(novoId);
                         repositorioDeVeiculosGlobal.getVeiculos(indice).setModelo(modeloEscolhido);
                     }
                     default -> System.out.println("Opção não disponivel!");

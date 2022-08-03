@@ -24,14 +24,6 @@ public class Modelo implements GlobalRepo{
         return nomeDoModelo(indice).equals(nome.toLowerCase());
     }
 
-    public Marca getMarca() {
-        return marca;
-    }
-
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
-
     public String getNome() {return nome;}
 
     public void setNome(String nome) {

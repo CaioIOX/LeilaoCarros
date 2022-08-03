@@ -50,7 +50,7 @@ public class Marca implements GlobalRepo {
 
     public String paisDeOrigemDaMarca(int indice) { return getMarca(indice).getPaisDeOrigem();}
 
-    public String paisDeProducaoDaMarca(int indice) { return getMarca(indice).paisDeProducaoDaMarca(indice);}
+    public String paisDeProducaoDaMarca(int indice) { return getMarca(indice).getPaisDeProducao();}
 
 
 }
