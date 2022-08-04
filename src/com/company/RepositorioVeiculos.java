@@ -51,7 +51,6 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                         case 1 -> {
                             String novaCor = JOptionPane.showInputDialog
                                 ("Escolha uma nova cor:").toLowerCase();
-                            ;
                             veiculos.get(indice).setCor(novaCor);
                             JOptionPane.showMessageDialog
                                 (null, "Cor alterada para " + novaCor + " com sucesso!");
@@ -128,11 +127,11 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
     public void imprimirVeiculos() {
         for (int indice = 0; indice < veiculos.size(); indice++) {
             JOptionPane.showMessageDialog(null, "##########" +
-                "Veículo: " + (indice + 1) +
-                "ID: " + idDoVeiculo(indice) +
-                "Veiculo: " + repositorioDeMarcasGlobal.nomeDaMarca(indice) +
+                "\nVeículo: " + (indice + 1) +
+                "\nID: " + idDoVeiculo(indice) +
+                "\nVeiculo: " + repositorioDeMarcasGlobal.nomeDaMarca(indice) +
                 " " + repositorioDeModelosGlobal.nomeDoModelo(indice) +
-                "Valor da divida: R$ " + dividaDoVeiculo(indice)
+                "\nValor da divida: R$ " + dividaDoVeiculo(indice)
                 + " Lance Mínimo: R$ " + lanceMinimoDoVeiculo(indice) + "\n");
         }
     }

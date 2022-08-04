@@ -8,23 +8,6 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
         marca.add(m);
     }
 
-    public void procurarMarcas(String nome) {
-        Marca temp = null;
-        for (int indice = 0; indice < marca.size(); indice++) {
-            if (compareWithInput(nome, indice)) {
-                temp = marca.get(indice);
-                JOptionPane.showMessageDialog
-                    (null, "Marca: " + nomeDaMarca(indice) +
-                    "\nPais de origem: " + paisDeOrigemDaMarca(indice) +
-                    "\nPais de produção: " + paisDeProducaoDaMarca(indice));
-                break;
-            }
-        }
-        if (temp == null) {
-            JOptionPane.showMessageDialog(null, "Marca não encontrada!");
-        }
-    }
-
     public void editarMarca(String nome) {
         for (int indice = 0; indice < marca.size(); indice++) {
             try {
@@ -69,11 +52,10 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
 
     public void imprimirMarcas() {
         for (int indice = 0; indice < marca.size(); indice++) {
-            JOptionPane.showInputDialog("#" + (indice + 1) + " - " + nomeDaMarca(indice));
+            JOptionPane.showMessageDialog
+                (null, "\n#" + (indice + 1) + " - " + nomeDaMarca(indice));
         }
     }
 
-    public boolean isEmpty() {
-        return marca.size() == 0;
-    }
+    public boolean isEmpty() {return marca.size() == 0;}
 }

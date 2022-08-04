@@ -19,7 +19,6 @@ public class Cadastros implements GlobalRepo {
             JOptionPane.showMessageDialog(null, "Marca cadastrada com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: dados invalidos");
-
         }
     }
 

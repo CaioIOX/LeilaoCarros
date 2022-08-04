@@ -26,7 +26,7 @@ public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
     }
 
     public void compraVeiculos() {
-        //JOptionPane.showMessageDialog(null, repositorioDeVeiculosGlobal.imprimirVeiculos());
+        repositorioDeVeiculosGlobal.imprimirVeiculos();
         String id = JOptionPane.showInputDialog
             ("Digite o id do veiculo que deseja comprar: ").toLowerCase();
         for (int indice = 0; indice < repositorioDeVeiculosGlobal.veiculos.size(); indice++) {

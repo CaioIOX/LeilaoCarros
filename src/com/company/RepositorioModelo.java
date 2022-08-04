@@ -8,23 +8,6 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
         modelo.add(m);
     }
 
-    public void procurarModelo(String nome) {
-        Modelo temp = null;
-        for (int indice = 0; indice < modelo.size(); indice++) {
-            if (compareWithInput(nome, indice)) {
-                temp = getModelo(indice);
-                JOptionPane.showMessageDialog
-                    (null, "Modelo: " + nomeDoModelo(indice) +
-                    "\nMotorização: " + motorizacaoDoModelo(indice) +
-                    "\nTipo de combustivel: " + tipoDeCombustivelDoModelo(indice));
-                break;
-            }
-        }
-        if (temp == null) {
-            JOptionPane.showMessageDialog(null, "Modelo não encontrado!");
-        }
-    }
-
     public void editarModelo(String nome) {
         for (int indice = 0; indice < modelo.size(); indice++) {
             try {
@@ -69,7 +52,7 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
     public void imprimirModelo() {
         for (int indice = 0; indice < modelo.size(); indice++)
             JOptionPane.showMessageDialog
-                (null, "#" + (indice + 1) + " - " + nomeDoModelo(indice));
+                (null, "\n#" + (indice + 1) + " - " + nomeDoModelo(indice));
 
     }
 
