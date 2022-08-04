@@ -1,46 +1,44 @@
 package com.company;
 
+import javax.swing.JOptionPane;
+
 public class Main implements GlobalRepo {
     static int resposta;
 
     public static void main(String[] args) {
 
-        //Menu
         do {
-            System.out.println(
-                   "******* Bem vindo ao leilões de automóveis!! *******" +
-                   "\nDigite o número da opção que deseja realizar:" +
-                   "\n1 - Cadastro de veículo" +
-                   "\n2 - Ver lista de veículos" +
-                   "\n3 - Sair");
-            resposta = input.nextInt();
 
+            JOptionPane.showMessageDialog(null, "******* Bem vindo ao leilão de automóveis!! *******");
+            JOptionPane.showMessageDialog(null, "Digite o número da opção que deseja realizar:");
+            resposta = Integer.parseInt(JOptionPane.showInputDialog("\n1 - Cadastro de veículo" +
+                "\n2 - Ver lista de veículos" +
+                "\n3 - Sair"));
             switch (resposta) {
                 case 1 -> {
-                    System.out.println(
-                            "Você deseja cadastrar:" +
+                    resposta = Integer.parseInt(JOptionPane.showInputDialog(
+                        "Você deseja cadastrar:" +
                             "\n1 - Marca" +
                             "\n2 - Modelo" +
-                            "\n3 - Veiculo");
-                    resposta = input.nextInt();
+                            "\n3 - Veiculo"));
+
                     switch (resposta) {
-                        case 1 -> {
-
-                                cadastro.cadastrarMarca();
-
-                        }
+                        case 1 -> cadastro.cadastrarMarca();
                         case 2 -> {
                             if (repositorioDeMarcasGlobal.isEmpty()) {
-                                System.out.println("Primeiro cadastre uma marca!");
+                                JOptionPane.showMessageDialog
+                                    (null, "Primeiro cadastre uma marca!");
                                 cadastro.cadastrarMarca();
                             } else cadastro.cadastrarModelo();
                         }
                         default -> {
                             if (repositorioDeMarcasGlobal.isEmpty()) {
-                                System.out.println("Primeiro cadastre uma marca!");
+                                JOptionPane.showMessageDialog
+                                    (null, "Primeiro cadastre uma marca!");
                                 cadastro.cadastrarMarca();
                             } else if (repositorioDeModelosGlobal.isEmpty()) {
-                                System.out.println("Primeiro cadaste um modelo!");
+                                JOptionPane.showMessageDialog
+                                    (null, "Primeiro cadaste um modelo!");
                                 cadastro.cadastrarModelo();
                             } else cadastro.cadastrarVeiculos();
                             resposta = 0;
@@ -49,43 +47,44 @@ public class Main implements GlobalRepo {
                 }
                 case 2 -> {
                     if (repositorioDeVeiculosGlobal.isEmpty()) {
-                        System.out.println("Não há veiculos cadastrados!");
+                        JOptionPane.showMessageDialog
+                            (null, "Não há veiculos cadastrados!");
                         break;
                     }
                     repositorioDeVeiculosGlobal.imprimirVeiculos();
-                    System.out.println(
-                            "Você deseja:" +
+                    resposta = Integer.parseInt(JOptionPane.showInputDialog(
+                        "Você deseja:" +
                             "\n1 - Alterar as informações de algum veículo" +
                             "\n2 - Alterar as informações de alguma marca" +
                             "\n3 - Alterar as informaões de algum modelo" +
                             "\n4 - Remover veículo da lista" +
                             "\n5 - Ver todas as informações do veiculo" +
                             "\n6 - Comprar um veículo" +
-                            "\n7 - Voltar ao menu anterior");
+                            "\n7 - Voltar ao menu anterior"));
                     int respostaListaVeiculos = input.nextInt();
                     switch (respostaListaVeiculos) {
                         case 1:
-                            System.out.println("Digite o ID do veiculo que deseja alterar as informações: ");
-                            String editarVeiculo = input.next();
+                            String editarVeiculo = JOptionPane.showInputDialog
+                                ("Digite o ID do veiculo que deseja alterar as informações: ");
                             repositorioDeVeiculosGlobal.editarVeiculo(editarVeiculo);
                             break;
                         case 2:
-                            System.out.println("Digite o nome da marca que deseja alterar as informações");
-                            String editarMarca = input.next();
+                            String editarMarca = JOptionPane.showInputDialog
+                                ("Digite o nome da marca que deseja alterar as informações");
                             repositorioDeMarcasGlobal.editarMarca(editarMarca);
                             break;
                         case 3:
-                            System.out.println("Digite o nome do modelo que deseja alterar as informações");
-                            String editarModelo = input.next();
+                            String editarModelo = JOptionPane.showInputDialog
+                                ("Digite o nome do modelo que deseja alterar as informações");
                             repositorioDeModelosGlobal.editarModelo(editarModelo);
                         case 4:
-                            System.out.println("Qual ID do veículo que deseja remover?");
-                            String removerVeiculo = input.next();
+                            String removerVeiculo = JOptionPane.showInputDialog
+                                ("Qual ID do veículo que deseja remover?");
                             repositorioDeVeiculosGlobal.removerVeiculo(removerVeiculo);
                             break;
                         case 5:
-                            System.out.println("Digite o id do veículo que deseja buscar:");
-                            String buscaVeiculo = input.next();
+                            String buscaVeiculo = JOptionPane.showInputDialog
+                                ("Digite o id do veículo que deseja buscar:");
                             repositorioDeVeiculosGlobal.procurarVeiculos(buscaVeiculo);
                             break;
                         case 6:
@@ -96,8 +95,9 @@ public class Main implements GlobalRepo {
                     }
                 }
             }
+
         } while (resposta != 3);
 
-        System.out.println("Leilão encerrado. Volte sempre!");
+        //JOptionPane.showMessageDialog(null, "Leilão encerrado. Volte sempre!");
     }
 }

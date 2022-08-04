@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.JOptionPane;
+
 public class RepositorioModelo extends Modelo implements GlobalRepo {
 
     public void adicionar(Modelo m) {
@@ -11,15 +13,14 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
         for (int indice = 0; indice < modelo.size(); indice++) {
             if (compareWithInput(nome, indice)) {
                 temp = getModelo(indice);
-                System.out.println("Modelo: " + nomeDoModelo(indice));
-                System.out.println("Motorização: " + motorizacaoDoModelo(indice));
-                System.out.println("Tipo de combustivel: " + tipoDeCombustivelDoModelo(indice));
-                System.out.println();
+                JOptionPane.showInputDialog("Modelo: " + nomeDoModelo(indice) +
+                    "\nMotorização: " + motorizacaoDoModelo(indice) +
+                    "\nTipo de combustivel: " + tipoDeCombustivelDoModelo(indice));
                 break;
             }
         }
         if (temp == null) {
-            System.out.println("Modelo não encontrado!");
+            JOptionPane.showInputDialog("Modelo não encontrado!");
         }
     }
 
@@ -27,33 +28,32 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
         for (int indice = 0; indice < modelo.size(); indice++) {
             try {
                 if (compareWithInput(nome, indice)) {
-                    System.out.println(
+                    int respostaAlterar = Integer.parseInt(JOptionPane.showInputDialog(
                         "O que deseja alterar?" +
                             "\n1 - Nome do modelo" +
                             "\n2 - Motorização" +
-                            "\n3 - Tipo de gasolina");
-                    int respostaAlterar = input.nextInt();
+                            "\n3 - Tipo de gasolina"));
                     switch (respostaAlterar) {
                         case 1 -> {
-                            System.out.println("Digite um novo nome para o modelo: ");
-                            String respostaNome = input.next();
+                            String respostaNome = JOptionPane.showInputDialog
+                                ("Digite um novo nome para o modelo: ");
                             getModelo(indice).setNome(respostaNome);
                         }
                         case 2 -> {
-                            System.out.println("Digite uma nova motorização: ");
-                            String respostaMotorizacao = input.next();
+                            String respostaMotorizacao = JOptionPane.showInputDialog
+                                ("Digite uma nova motorização: ");
                             getModelo(indice).setMotorizacao(respostaMotorizacao);
                         }
                         case 3 -> {
-                            System.out.println("Digite um novo tipo de combustivel: ");
-                            String respostaTipoDeCombustivel = input.next();
+                            String respostaTipoDeCombustivel = JOptionPane.showInputDialog
+                                ("Digite um novo tipo de combustivel: ");
                             getModelo(indice).setTipoDeCombustivel(respostaTipoDeCombustivel);
                         }
-                        default -> System.out.println("Modelo não encontrado!");
+                        default -> JOptionPane.showInputDialog("Modelo não encontrado!");
                     }
                 }
             } catch (Exception e) {
-                System.out.println("Erro: dados invalidos");
+                JOptionPane.showInputDialog("Erro: dados invalidos");
             }
         }
     }
@@ -66,7 +66,7 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
 
     public void imprimirModelo() {
         for (int indice = 0; indice < modelo.size(); indice++)
-            System.out.println("#" + (indice + 1) + " - " + nomeDoModelo(indice));
+            JOptionPane.showInputDialog("#" + (indice + 1) + " - " + nomeDoModelo(indice));
 
     }
 

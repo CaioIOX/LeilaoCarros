@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.JOptionPane;
+
 public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
 
     public double pagamentoAvista(double lance) {
@@ -10,64 +12,63 @@ public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
     public void pagamento12x(double lance) {
         entrada = lance * 0.3;
         parcela = (lance - entrada) / 12;
-        System.out.println("Para realizar a compra deve-se dar uma entrada de R$ " + entrada
+        JOptionPane.showInputDialog
+            ("Para realizar a compra deve-se dar uma entrada de R$ " + entrada
                 + " e as parcelas ficarão em R$ " + parcela + " sem juros!");
     }
 
     public void pagamento24x(double lance) {
         entrada = lance * 0.2;
         parcela = (lance - entrada) / 24;
-        System.out.println("Para realizar a compra deve-se dar uma entrada de R$ " + entrada
+        JOptionPane.showInputDialog
+            ("Para realizar a compra deve-se dar uma entrada de R$ " + entrada
                 + " e as parcelas ficarão em R$ " + parcela + " sem juros!");
     }
 
     public void compraVeiculos() {
-        repositorioDeVeiculosGlobal.imprimirVeiculos();
-        System.out.println("Digite o id do veiculo que deseja comprar: ");
-        String id = input.next().toLowerCase();
-
+        //JOptionPane.showMessageDialog(null, repositorioDeVeiculosGlobal.imprimirVeiculos());
+        String id = JOptionPane.showInputDialog
+            ("Digite o id do veiculo que deseja comprar: ").toLowerCase();
         for (int indice = 0; indice < repositorioDeVeiculosGlobal.veiculos.size(); indice++) {
             if (repositorioDeVeiculosGlobal.compareWithInput(id, indice)) {
-                System.out.println("Quanto deseja pagar?");
-                double lance = input.nextDouble();
+                double lance = Double.parseDouble(JOptionPane.showInputDialog("Quanto deseja pagar?"));
                 if (lance < repositorioDeVeiculosGlobal.lanceMinimoDoVeiculo(indice)) {
-                    System.out.println("Lance insuficiente!");
+                    JOptionPane.showInputDialog("Lance insuficiente!");
                 } else {
-                    System.out.println(
+                    int respostaCompra = Integer.parseInt(JOptionPane.showInputDialog(
                         "Qual forma de pagamento deseja utilizar?:" +
                             "\n1 - A vista" +
                             "\n2 - Em 12x sem juros" +
                             "\n3 - Em 24x sem juros" +
-                            "\n4 - Desistir da compra");
-                    int respostaCompra = input.nextInt();
+                            "\n4 - Desistir da compra"));
                     switch (respostaCompra) {
                         case 1 -> {
-                            System.out.println("O valor do veiculo será: " + pagamentoAvista(lance));
-                            System.out.println("Deseja finalizar a compra? 1 - SIM/2 - NÃO");
-                            int compra = input.nextInt();
+                            JOptionPane.showInputDialog("O valor do veiculo será: " + pagamentoAvista(lance));
+                            int compra = Integer.parseInt(JOptionPane.showInputDialog
+                                ("Deseja finalizar a compra? 1 - SIM/2 - NÃO"));
                             if (compra == 1) {
-                                System.out.println("Compra realizada com sucesso!");
+                                JOptionPane.showInputDialog("Compra realizada com sucesso!");
                                 repositorioDeVeiculosGlobal.removerVeiculo(id);
-                            } else System.out.println("Compra cancelada!");
+                            } else JOptionPane.showInputDialog("Compra cancelada!");
 
                         }
                         case 2 -> {
                             pagamento12x(lance);
-                            System.out.println("Deseja finalizar a compra? 1 - SIM/2 - NÃO");
-                            int compra = input.nextInt();
+                            int compra = Integer.parseInt(JOptionPane.showInputDialog
+                                ("Deseja finalizar a compra? 1 - SIM/2 - NÃO"));
                             if (compra == 1) {
-                                System.out.println("Compra realizada com sucesso!");
+                                JOptionPane.showInputDialog("Compra realizada com sucesso!");
                                 repositorioDeVeiculosGlobal.removerVeiculo(id);
-                            } else System.out.println("Compra cancelada!");
+                            } else JOptionPane.showInputDialog("Compra cancelada!");
                         }
                         case 3 -> {
                             pagamento24x(lance);
-                            System.out.println("Deseja finalizar a compra? 1 - SIM/2 - NÃO");
-                            int compra = input.nextInt();
+                            int compra = Integer.parseInt(JOptionPane.showInputDialog
+                                ("Deseja finalizar a compra? 1 - SIM/2 - NÃO"));
                             if (compra == 1) {
-                                System.out.println("Compra realizada com sucesso!");
+                                JOptionPane.showInputDialog("Compra realizada com sucesso!");
                                 repositorioDeVeiculosGlobal.removerVeiculo(id);
-                            } else System.out.println("Compra cancelada!");
+                            } else JOptionPane.showInputDialog("Compra cancelada!");
                         }
                         default -> {
                         }

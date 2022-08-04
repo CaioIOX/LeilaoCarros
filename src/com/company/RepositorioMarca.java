@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.JOptionPane;
+
 public class RepositorioMarca extends Marca implements GlobalRepo {
 
     public void adicionar(Marca m) {
@@ -11,15 +13,14 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
         for (int indice = 0; indice < marca.size(); indice++) {
             if (compareWithInput(nome, indice)) {
                 temp = marca.get(indice);
-                System.out.println("Marca: " + nomeDaMarca(indice));
-                System.out.println("Pais de origem: " + paisDeOrigemDaMarca(indice));
-                System.out.println("Pais de produção: " + paisDeProducaoDaMarca(indice));
-                System.out.println();
+                JOptionPane.showInputDialog("Marca: " + nomeDaMarca(indice) +
+                    "\nPais de origem: " + paisDeOrigemDaMarca(indice) +
+                    "\nPais de produção: " + paisDeProducaoDaMarca(indice));
                 break;
             }
         }
         if (temp == null) {
-            System.out.println("Marca não encontrada!");
+            JOptionPane.showInputDialog("Marca não encontrada!");
         }
     }
 
@@ -27,33 +28,32 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
         for (int indice = 0; indice < marca.size(); indice++) {
             try {
                 if (compareWithInput(nome, indice)) {
-                    System.out.println(
+                    int respostaAlterar = Integer.parseInt(JOptionPane.showInputDialog(
                         "O que deseja alterar?" +
                             "\n1 - Nome da Marca" +
                             "\n2 - País de Origem" +
-                            "\n3 - País de produção");
-                    int respostaAlterar = input.nextInt();
+                            "\n3 - País de produção"));
                     switch (respostaAlterar) {
                         case 1 -> {
-                            System.out.println("Digite um novo nome para a Marca: ");
-                            String respostaNome = input.next();
+                            String respostaNome = JOptionPane.showInputDialog
+                                ("Digite um novo nome para a Marca: ");
                             marca.get(indice).setNome(respostaNome);
                         }
                         case 2 -> {
-                            System.out.println("Digite um novo país de origem: ");
-                            String respostaPaisDeOrigem = input.next();
+                            String respostaPaisDeOrigem =
+                                ("Digite um novo país de origem: ");
                             marca.get(indice).setPaisDeOrigem(respostaPaisDeOrigem);
                         }
                         case 3 -> {
-                            System.out.println("Digite um novo país de produção: ");
-                            String respostaPaisDeproducao = input.next();
+                            String respostaPaisDeproducao = JOptionPane.showInputDialog
+                                ("Digite um novo país de produção: ");
                             marca.get(indice).setPaisDeProducao(respostaPaisDeproducao);
                         }
-                        default -> System.out.println("Marca não encontrada!");
+                        default -> JOptionPane.showInputDialog("Marca não encontrada!");
                     }
                 }
             } catch (Exception e) {
-                System.out.println("Erro: dados invalidos");
+                JOptionPane.showInputDialog("Erro: dados invalidos");
             }
         }
     }
@@ -68,12 +68,11 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
 
     public void imprimirMarcas() {
         for (int indice = 0; indice < marca.size(); indice++) {
-            System.out.println("#" + (indice + 1) + " - " + nomeDaMarca(indice));
+            JOptionPane.showInputDialog("#" + (indice + 1) + " - " + nomeDaMarca(indice));
         }
     }
 
     public boolean isEmpty() {
-
         return marca.size() == 0;
     }
 }
