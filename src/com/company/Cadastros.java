@@ -16,9 +16,9 @@ public class Cadastros implements GlobalRepo {
                 nomeMarca,
                 paisOrigem,
                 paisProducao));
-            JOptionPane.showInputDialog("Marca cadastrada com sucesso!");
+            JOptionPane.showMessageDialog(null, "Marca cadastrada com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showInputDialog("Erro: dados invalidos");
+            JOptionPane.showMessageDialog(null, "Erro: dados invalidos");
 
         }
     }
@@ -38,9 +38,9 @@ public class Cadastros implements GlobalRepo {
                 motorizacao,
                 tipoCombustivel,
                 marcaEscolhida));
-            JOptionPane.showInputDialog("Modelo cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Modelo cadastrado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showInputDialog("Erro: dados invalidos");
+            JOptionPane.showMessageDialog(null, "Erro: dados invalidos");
         }
     }
 
@@ -74,9 +74,9 @@ public class Cadastros implements GlobalRepo {
                 lanceMinimo,
                 descricao,
                 modeloEscolhido));
-            JOptionPane.showInputDialog("Veiculo cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Veiculo cadastrado com sucesso!");
         } catch (Exception e) {
-            JOptionPane.showInputDialog("Erro: dados invalidos");
+            JOptionPane.showMessageDialog(null,"Erro: dados invalidos");
         }
 
     }

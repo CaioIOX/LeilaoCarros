@@ -13,14 +13,15 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
         for (int indice = 0; indice < modelo.size(); indice++) {
             if (compareWithInput(nome, indice)) {
                 temp = getModelo(indice);
-                JOptionPane.showInputDialog("Modelo: " + nomeDoModelo(indice) +
+                JOptionPane.showMessageDialog
+                    (null, "Modelo: " + nomeDoModelo(indice) +
                     "\nMotorização: " + motorizacaoDoModelo(indice) +
                     "\nTipo de combustivel: " + tipoDeCombustivelDoModelo(indice));
                 break;
             }
         }
         if (temp == null) {
-            JOptionPane.showInputDialog("Modelo não encontrado!");
+            JOptionPane.showMessageDialog(null, "Modelo não encontrado!");
         }
     }
 
@@ -49,11 +50,12 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
                                 ("Digite um novo tipo de combustivel: ");
                             getModelo(indice).setTipoDeCombustivel(respostaTipoDeCombustivel);
                         }
-                        default -> JOptionPane.showInputDialog("Modelo não encontrado!");
+                        default -> JOptionPane.showMessageDialog
+                            (null, "Modelo não encontrado!");
                     }
                 }
             } catch (Exception e) {
-                JOptionPane.showInputDialog("Erro: dados invalidos");
+                JOptionPane.showMessageDialog(null, "Erro: dados invalidos");
             }
         }
     }
@@ -66,7 +68,8 @@ public class RepositorioModelo extends Modelo implements GlobalRepo {
 
     public void imprimirModelo() {
         for (int indice = 0; indice < modelo.size(); indice++)
-            JOptionPane.showInputDialog("#" + (indice + 1) + " - " + nomeDoModelo(indice));
+            JOptionPane.showMessageDialog
+                (null, "#" + (indice + 1) + " - " + nomeDoModelo(indice));
 
     }
 

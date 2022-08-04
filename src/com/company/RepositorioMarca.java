@@ -13,14 +13,15 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
         for (int indice = 0; indice < marca.size(); indice++) {
             if (compareWithInput(nome, indice)) {
                 temp = marca.get(indice);
-                JOptionPane.showInputDialog("Marca: " + nomeDaMarca(indice) +
+                JOptionPane.showMessageDialog
+                    (null, "Marca: " + nomeDaMarca(indice) +
                     "\nPais de origem: " + paisDeOrigemDaMarca(indice) +
                     "\nPais de produção: " + paisDeProducaoDaMarca(indice));
                 break;
             }
         }
         if (temp == null) {
-            JOptionPane.showInputDialog("Marca não encontrada!");
+            JOptionPane.showMessageDialog(null, "Marca não encontrada!");
         }
     }
 
@@ -40,7 +41,7 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
                             marca.get(indice).setNome(respostaNome);
                         }
                         case 2 -> {
-                            String respostaPaisDeOrigem =
+                            String respostaPaisDeOrigem = JOptionPane.showInputDialog
                                 ("Digite um novo país de origem: ");
                             marca.get(indice).setPaisDeOrigem(respostaPaisDeOrigem);
                         }
@@ -49,11 +50,11 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
                                 ("Digite um novo país de produção: ");
                             marca.get(indice).setPaisDeProducao(respostaPaisDeproducao);
                         }
-                        default -> JOptionPane.showInputDialog("Marca não encontrada!");
+                        default -> JOptionPane.showMessageDialog(null, "Marca não encontrada!");
                     }
                 }
             } catch (Exception e) {
-                JOptionPane.showInputDialog("Erro: dados invalidos");
+                JOptionPane.showMessageDialog(null, "Erro: dados invalidos");
             }
         }
     }

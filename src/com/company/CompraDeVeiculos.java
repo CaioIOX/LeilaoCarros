@@ -12,16 +12,16 @@ public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
     public void pagamento12x(double lance) {
         entrada = lance * 0.3;
         parcela = (lance - entrada) / 12;
-        JOptionPane.showInputDialog
-            ("Para realizar a compra deve-se dar uma entrada de R$ " + entrada
+        JOptionPane.showMessageDialog(null,
+            "Para realizar a compra deve-se dar uma entrada de R$ " + entrada
                 + " e as parcelas ficarão em R$ " + parcela + " sem juros!");
     }
 
     public void pagamento24x(double lance) {
         entrada = lance * 0.2;
         parcela = (lance - entrada) / 24;
-        JOptionPane.showInputDialog
-            ("Para realizar a compra deve-se dar uma entrada de R$ " + entrada
+        JOptionPane.showMessageDialog(null,
+            "Para realizar a compra deve-se dar uma entrada de R$ " + entrada
                 + " e as parcelas ficarão em R$ " + parcela + " sem juros!");
     }
 
@@ -33,7 +33,7 @@ public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
             if (repositorioDeVeiculosGlobal.compareWithInput(id, indice)) {
                 double lance = Double.parseDouble(JOptionPane.showInputDialog("Quanto deseja pagar?"));
                 if (lance < repositorioDeVeiculosGlobal.lanceMinimoDoVeiculo(indice)) {
-                    JOptionPane.showInputDialog("Lance insuficiente!");
+                    JOptionPane.showMessageDialog(null, "Lance insuficiente!");
                 } else {
                     int respostaCompra = Integer.parseInt(JOptionPane.showInputDialog(
                         "Qual forma de pagamento deseja utilizar?:" +
@@ -43,13 +43,16 @@ public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
                             "\n4 - Desistir da compra"));
                     switch (respostaCompra) {
                         case 1 -> {
-                            JOptionPane.showInputDialog("O valor do veiculo será: " + pagamentoAvista(lance));
+                            JOptionPane.showMessageDialog
+                                (null, "O valor do veiculo será: " + pagamentoAvista(lance));
                             int compra = Integer.parseInt(JOptionPane.showInputDialog
                                 ("Deseja finalizar a compra? 1 - SIM/2 - NÃO"));
                             if (compra == 1) {
-                                JOptionPane.showInputDialog("Compra realizada com sucesso!");
+                                JOptionPane.showMessageDialog
+                                    (null, "Compra realizada com sucesso!");
                                 repositorioDeVeiculosGlobal.removerVeiculo(id);
-                            } else JOptionPane.showInputDialog("Compra cancelada!");
+                            } else JOptionPane.showMessageDialog
+                                (null, "Compra cancelada!");
 
                         }
                         case 2 -> {
@@ -57,18 +60,22 @@ public class CompraDeVeiculos extends AbstractPagamentos implements GlobalRepo{
                             int compra = Integer.parseInt(JOptionPane.showInputDialog
                                 ("Deseja finalizar a compra? 1 - SIM/2 - NÃO"));
                             if (compra == 1) {
-                                JOptionPane.showInputDialog("Compra realizada com sucesso!");
+                                JOptionPane.showMessageDialog
+                                    (null, "Compra realizada com sucesso!");
                                 repositorioDeVeiculosGlobal.removerVeiculo(id);
-                            } else JOptionPane.showInputDialog("Compra cancelada!");
+                            } else JOptionPane.showMessageDialog
+                                (null,"Compra cancelada!");
                         }
                         case 3 -> {
                             pagamento24x(lance);
                             int compra = Integer.parseInt(JOptionPane.showInputDialog
                                 ("Deseja finalizar a compra? 1 - SIM/2 - NÃO"));
                             if (compra == 1) {
-                                JOptionPane.showInputDialog("Compra realizada com sucesso!");
+                                JOptionPane.showMessageDialog
+                                    (null, "Compra realizada com sucesso!");
                                 repositorioDeVeiculosGlobal.removerVeiculo(id);
-                            } else JOptionPane.showInputDialog("Compra cancelada!");
+                            } else JOptionPane.showMessageDialog
+                                (null,"Compra cancelada!");
                         }
                         default -> {
                         }

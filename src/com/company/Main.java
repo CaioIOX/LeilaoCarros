@@ -7,13 +7,15 @@ public class Main implements GlobalRepo {
 
     public static void main(String[] args) {
 
-        do {
+        JOptionPane.showMessageDialog
+            (null, "******* Bem vindo ao leilão de automóveis!! *******");
 
-            JOptionPane.showMessageDialog(null, "******* Bem vindo ao leilão de automóveis!! *******");
-            JOptionPane.showMessageDialog(null, "Digite o número da opção que deseja realizar:");
-            resposta = Integer.parseInt(JOptionPane.showInputDialog("\n1 - Cadastro de veículo" +
-                "\n2 - Ver lista de veículos" +
-                "\n3 - Sair"));
+        do {
+            resposta = Integer.parseInt(JOptionPane.showInputDialog
+                ("Digite o número da opção que deseja realizar:" +
+                    "\n1 - Cadastro de veículo" +
+                    "\n2 - Ver lista de veículos" +
+                    "\n3 - Sair"));
             switch (resposta) {
                 case 1 -> {
                     resposta = Integer.parseInt(JOptionPane.showInputDialog(
