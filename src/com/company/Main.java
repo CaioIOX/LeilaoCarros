@@ -55,7 +55,14 @@ public class Main implements GlobalRepo {
                         }
                     }
                 }
-                case 2 -> listaDeVeiculos();
+                case 2 -> {
+                    try {
+                        listaDeVeiculos();
+                    } catch (Exception e) {
+                        JOptionPane.showInputDialog
+                            ("Erro: Nenhum veiculo encontrado, cadastre veiculos para ver a lista");
+                    }
+                }
                 case 3 -> {}
                 default -> JOptionPane.showMessageDialog(null, "Valor invalido!");
             }
