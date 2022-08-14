@@ -1,0 +1,7 @@
+
+{
+java:S1319	"eThe type of "marca" should be an interface such as "List" rather than the implementation "ArrayList".(ğÙõÿ
+g
+java:S1104	"QMake marca a static final constant or non-public and provide accessors if needed.(ğÙõÿ
+*
+java:S1700	"Rename field "marca"(ğÙõÿ

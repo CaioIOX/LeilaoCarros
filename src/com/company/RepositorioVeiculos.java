@@ -29,7 +29,6 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                 break;
             } else System.out.println("Veículo não encontrado!");
         }
-
     }
 
     public void editarVeiculo(String id) {
@@ -67,7 +66,7 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                             System.out.println("Quilometragem alterada para " + novaKm + "kms rodados com sucesso!");
                         }
                         case 4 -> {
-                            System.out.println("Digite um nvoo valor da dívida: ");
+                            System.out.println("Digite um novo valor da dívida: ");
                             double novaDivida = input.nextDouble();
                             veiculos.get(indice).setValorDivida(novaDivida);
                             System.out.println("Valor da dívida alterada para R$ " + novaDivida + " com sucesso!");
@@ -95,7 +94,6 @@ public class RepositorioVeiculos extends Veiculos implements GlobalRepo {
                             System.out.println("Digite um novo id para o veículo: ");
                             String novoId = input.next();
                             veiculos.get(indice).setId(novoId);
-                            repositorioDeVeiculosGlobal.getVeiculos(indice).setModelo(modeloEscolhido);
                         }
                         default -> System.out.println("Opção não disponivel!");
                     }

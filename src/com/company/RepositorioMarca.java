@@ -74,6 +74,6 @@ public class RepositorioMarca extends Marca implements GlobalRepo {
 
     public boolean isEmpty() {
 
-        return marca.size() == 0;
+        return marca.isEmpty();
     }
 }
